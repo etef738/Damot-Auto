@@ -1,0 +1,925 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" type="image/svg+xml" href="assets/logo/damot-icon.svg">
+<meta property="og:title" content="Damot Auto Corporation">
+<meta property="og:description" content="Complete auto repair &amp; body shop in North York, Toronto.">
+<meta property="og:image" content="assets/img/hero.jpg">
+<title>Damot Auto Corporation</title>
+<meta name="description" content="Damot Auto Corporation — complete auto repair and body shop in North York, Toronto. Mechanical repair, collision, paint and insurance claims under one roof.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;1,700;1,800&family=Barlow:wght@400;500;600&display=swap">
+<style>
+/* Layout: chrome-and-electric-blue garage at night — full-bleed bands, diagonal cuts echoing the client's card, one shop-floor hero */
+:root{
+  --ink:#070B14; --panel:#0D1424; --panel-2:#111B30; --line:#1E2C47;
+  --fg:#EAF0F8; --muted:#93A1BA; --chrome:#C9D3E0;
+  --blue:#1F6BFF; --blue-hi:#4FA3FF; --blue-deep:#0A2E8A;
+  --display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --body:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --cut:clamp(28px,5vw,64px);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--fg);font-family:var(--body);font-size:17px;line-height:1.6;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--ink)}
+a{color:inherit}
+img{max-width:100%;display:block}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);font-style:italic;font-weight:800;line-height:.98;letter-spacing:.01em;text-transform:uppercase;margin:0;text-wrap:balance}
+h2{font-size:clamp(2.2rem,5vw,3.6rem)}
+h3{font-size:1.45rem;font-weight:700}
+p{margin:0}
+.eyebrow{font-family:var(--display);font-weight:700;font-size:.95rem;letter-spacing:.32em;text-transform:uppercase;color:var(--blue-hi);display:flex;align-items:center;gap:.7rem}
+.eyebrow::before{content:"";width:28px;height:3px;background:var(--blue);transform:skewX(-20deg)}
+.lede{color:var(--muted);max-width:60ch;font-size:1.08rem}
+.chrome-text{background:linear-gradient(180deg,#fff 0%,var(--chrome) 48%,#7F8BA0 52%,#E6ECF5 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+:focus-visible{outline:2px solid var(--blue-hi);outline-offset:3px}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--display);font-weight:700;font-size:1.1rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;padding:.85rem 1.5rem;border:0;cursor:pointer;clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%);transition:filter .2s,transform .2s}
+.btn-primary{background:linear-gradient(180deg,var(--blue-hi),var(--blue));color:#fff}
+.btn-ghost{background:var(--panel-2);color:var(--fg);box-shadow:inset 0 0 0 1px var(--line)}
+.btn:hover{filter:brightness(1.12);transform:translateY(-1px)}
+.btn svg{width:20px;height:20px;flex:none}
+
+/* header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(7,11,20,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:.7rem}
+.brand{display:flex;align-items:center;gap:.7rem;text-decoration:none}
+.brand svg{width:44px;height:44px;flex:none}
+.brand-name{font-family:var(--display);font-style:italic;font-weight:800;font-size:1.65rem;line-height:.9;letter-spacing:.04em}
+.brand-name small{display:block;font-style:normal;font-weight:600;font-size:.62rem;letter-spacing:.34em;color:var(--chrome)}
+.nav{display:flex;gap:1.6rem;align-items:center}
+.nav a{font-family:var(--display);font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:.95rem;text-decoration:none;color:var(--muted)}
+.nav a:hover{color:var(--fg)}
+.nav .btn{color:#fff;padding:.55rem 1.1rem;font-size:1rem}
+@media (max-width:860px){.nav a:not(.btn){display:none}}
+
+/* hero */
+.hero{position:relative;overflow:hidden;background:radial-gradient(120% 90% at 85% 40%,#10306e 0%,var(--ink) 62%)}
+.hero .wrap{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(1.5rem,4vw,3rem);align-items:center;padding-block:clamp(2.5rem,6vw,5rem) clamp(3rem,7vw,6rem)}
+.hero-copy{display:grid;gap:1.4rem;min-width:0;position:relative;z-index:2}
+.hero h1{font-size:clamp(3rem,8.2vw,6.4rem)}
+.hero h1 span{display:block}
+.hero h1 .blue{color:var(--blue-hi)}
+.hero .lede{color:#B9C5D8}
+.cta-row{display:flex;flex-wrap:wrap;gap:.8rem}
+.hero-figure{position:relative;min-width:0}
+.hero-figure img{width:100%;height:auto;aspect-ratio:637/352;object-fit:cover;clip-path:polygon(8% 0,100% 0,100% 100%,0 100%);filter:saturate(1.1) contrast(1.05);mask-image:linear-gradient(90deg,transparent 0,#000 14%)}
+.hero-figure::after{content:"";position:absolute;left:4%;right:-10%;bottom:-6px;height:6px;background:linear-gradient(90deg,transparent,var(--blue) 30%,var(--blue-hi));transform:skewX(-30deg)}
+.plate{position:absolute;right:0;bottom:-18px;background:var(--ink);border:1px solid var(--line);padding:.6rem .9rem;font-family:var(--display);font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:.85rem;color:var(--chrome);display:flex;gap:.5rem;align-items:center}
+.plate svg{width:16px;height:16px;color:var(--blue-hi)}
+.speed{position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(-62deg,transparent 0 46px,rgba(79,163,255,.05) 46px 48px)}
+@media (max-width:860px){.hero .wrap{grid-template-columns:1fr}.hero-figure{order:-1}}
+
+/* trust strip */
+.strip{background:linear-gradient(90deg,var(--blue-deep),var(--blue));clip-path:polygon(0 0,100% 0,100% 100%,0 100%)}
+.strip .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;padding-block:1.1rem}
+.strip div{display:flex;align-items:center;gap:.7rem;font-family:var(--display);font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-size:1.02rem;line-height:1.1}
+.strip svg{width:30px;height:30px;flex:none}
+@media (max-width:860px){.strip .wrap{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:420px){.strip div{font-size:.9rem}}
+
+section{padding-block:clamp(3.5rem,8vw,6.5rem)}
+.head{display:grid;gap:1rem;margin-bottom:clamp(2rem,4vw,3rem)}
+
+/* services */
+.svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1rem,3vw,2rem)}
+.svc-col{background:var(--panel);border:1px solid var(--line);padding:clamp(1.25rem,3vw,2rem);display:grid;gap:1.2rem;align-content:start;min-width:0}
+.svc-col-head{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;border-bottom:1px solid var(--line);padding-bottom:1rem}
+.svc-col-head span{font-family:var(--display);font-weight:600;letter-spacing:.2em;color:var(--muted);font-size:.85rem;text-transform:uppercase}
+.svc{display:grid;grid-template-columns:52px 1fr;gap:1rem;align-items:start}
+.svc i{width:52px;height:52px;display:grid;place-items:center;border-radius:50%;background:radial-gradient(circle at 35% 30%,#1b3c7a,#0a1630);box-shadow:inset 0 0 0 2px var(--blue),0 0 18px rgba(31,107,255,.25)}
+.svc i svg{width:26px;height:26px;color:#fff}
+.svc b{font-family:var(--display);font-weight:700;font-size:1.25rem;letter-spacing:.03em;text-transform:uppercase;display:block;line-height:1.2}
+.svc p{color:var(--muted);font-size:.97rem}
+@media (max-width:860px){.svc-grid{grid-template-columns:1fr}}
+
+/* quick services */
+.quick-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1rem,2.5vw,1.6rem)}
+.qcard{background:var(--panel);border:1px solid var(--line);display:grid;grid-template-rows:auto 1fr;min-width:0;transition:transform .3s,border-color .3s}
+.qcard:hover{transform:translateY(-4px);border-color:var(--blue)}
+.scene{aspect-ratio:16/10;max-width:100%;background:radial-gradient(120% 100% at 70% 20%,#12306a,#081022 70%);border-bottom:3px solid var(--blue);overflow:hidden;position:relative}
+.scene svg{width:100%;height:100%;display:block}
+.scene .tagline{position:absolute;left:12px;top:12px;font-family:var(--display);font-weight:700;letter-spacing:.16em;font-size:.75rem;text-transform:uppercase;background:rgba(7,11,20,.75);color:var(--chrome);padding:.2rem .55rem;border:1px solid var(--line)}
+.qbody{padding:1.3rem 1.3rem 1.5rem;display:grid;gap:.9rem;align-content:start}
+.qbody p{color:var(--muted);font-size:.97rem}
+.qbody ul{list-style:none;padding:0;margin:0;display:grid;gap:.45rem}
+.qbody li{display:flex;gap:.55rem;color:#C5D0E2;font-size:.95rem}
+.qbody li svg{width:17px;height:17px;color:var(--blue-hi);flex:none;margin-top:.25rem}
+.qbody .btn{justify-self:start;font-size:1rem;padding:.65rem 1.2rem}
+@media(max-width:980px){.quick-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.quick-grid{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:no-preference){
+  .a-spin{animation:spin 2.4s linear infinite;transform-box:fill-box;transform-origin:center}
+  .a-spin-fast{animation:spin .5s linear infinite;transform-box:fill-box;transform-origin:center}
+  .a-drop{animation:drop 1.2s ease-in infinite}
+  .a-drop.d2{animation-delay:.4s}.a-drop.d3{animation-delay:.8s}
+  .a-stream{stroke-dasharray:8 6;animation:flow .6s linear infinite}
+  .a-fill{animation:fill 3.6s ease-in-out infinite;transform-box:fill-box;transform-origin:bottom}
+  .a-tilt{animation:tilt 3.6s ease-in-out infinite;transform-box:fill-box;transform-origin:30% 20%}
+  .a-lift{animation:lift 4s ease-in-out infinite}
+  .a-nut{animation:nut 4s ease-in-out infinite}
+  .a-roll{animation:spin 3s linear infinite;transform-box:fill-box;transform-origin:center}
+  .a-ground{animation:ground 1.5s linear infinite}
+  .a-snow{animation:snow 4s linear infinite}
+  .a-merc{animation:merc 5s ease-in-out infinite;transform-box:fill-box;transform-origin:bottom}
+  .a-pulse{animation:pulse 2s ease-in-out infinite}
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes drop{0%{transform:translateY(0);opacity:0}15%{opacity:1}100%{transform:translateY(46px);opacity:0}}
+@keyframes flow{to{stroke-dashoffset:-14}}
+@keyframes fill{0%{transform:scaleY(.25)}60%,85%{transform:scaleY(1)}100%{transform:scaleY(.25)}}
+@keyframes tilt{0%,100%{transform:rotate(0)}50%{transform:rotate(-7deg)}}
+@keyframes lift{0%,100%{transform:translateY(0)}35%,75%{transform:translateY(-14px)}}
+@keyframes nut{0%,30%{transform:translate(0,0);opacity:1}45%,70%{transform:translate(26px,26px);opacity:0}85%,100%{transform:translate(0,0);opacity:1}}
+@keyframes ground{to{transform:translateX(-40px)}}
+@keyframes snow{0%{transform:translate(0,-30px);opacity:0}10%{opacity:1}100%{transform:translate(-18px,220px);opacity:.2}}
+@keyframes merc{0%,100%{transform:scaleY(1)}50%{transform:scaleY(.35)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+
+/* maintenance */
+.mnt{border-top:1px solid var(--line)}
+.mnt-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(1.5rem,4vw,3rem);align-items:start}
+.panel{background:var(--panel);border:1px solid var(--line);padding:clamp(1.2rem,3vw,1.8rem);display:grid;gap:1.1rem;min-width:0}
+.panel-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:.5rem}
+.panel-head span{font-family:var(--display);font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-size:.8rem}
+.odo{display:flex;flex-wrap:wrap;gap:.4rem}
+.odo button{font-family:var(--display);font-weight:700;font-size:1.05rem;letter-spacing:.06em;font-variant-numeric:tabular-nums;color:var(--muted);background:var(--ink);border:1px solid var(--line);padding:.55rem .9rem;cursor:pointer;clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%)}
+.odo button[aria-selected="true"]{background:var(--blue);border-color:var(--blue);color:#fff}
+.gauge{display:flex;align-items:baseline;gap:.6rem;font-family:var(--display);font-style:italic;font-weight:800;font-size:clamp(2.4rem,6vw,3.4rem);line-height:1;font-variant-numeric:tabular-nums}
+.gauge small{font-style:normal;font-weight:600;font-size:.9rem;letter-spacing:.2em;color:var(--muted)}
+.checks{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:.55rem 1.2rem}
+.checks li{display:flex;gap:.6rem;align-items:flex-start;color:#C5D0E2;font-size:.98rem}
+.checks svg{width:18px;height:18px;color:var(--blue-hi);flex:none;margin-top:.25rem}
+.checks li.add svg{color:#fff}
+.checks li.add{color:var(--fg);font-weight:500}
+.note{color:var(--muted);font-size:.88rem}
+.seasons{display:grid;gap:.7rem}
+.season{border:1px solid var(--line);background:var(--ink);padding:1rem 1.1rem;display:grid;gap:.35rem;position:relative}
+.season h3{font-size:1.3rem;display:flex;gap:.6rem;align-items:center;flex-wrap:wrap}
+.season h3 em{font-style:normal;font-family:var(--display);font-weight:600;font-size:.8rem;letter-spacing:.16em;color:var(--muted)}
+.season p{color:var(--muted);font-size:.95rem}
+.season.now{border-color:var(--blue);background:linear-gradient(100deg,#0d2250,var(--ink) 70%)}
+.season .badge{display:none;font-family:var(--display);font-style:normal;font-weight:700;font-size:.75rem;letter-spacing:.16em;background:var(--blue);color:#fff;padding:.12rem .5rem}
+.season.now .badge{display:inline-block}
+@media(max-width:900px){.mnt-grid{grid-template-columns:1fr}}
+@media(max-width:520px){.checks{grid-template-columns:1fr}}
+
+/* social */
+.social{display:flex;gap:.6rem;flex-wrap:wrap}
+.social a{width:44px;height:44px;display:grid;place-items:center;background:var(--panel-2);border:1px solid var(--line);color:var(--fg);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);transition:background .25s,transform .25s}
+.social a:hover{background:var(--blue);transform:translateY(-3px)}
+.social svg{width:20px;height:20px}
+.social-row{display:flex;flex-wrap:wrap;align-items:center;gap:1rem;padding:1rem;background:var(--panel);border:1px solid var(--line)}
+.social-row small{font-family:var(--display);font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-size:.8rem;flex:1 1 140px}
+
+/* parts */
+.parts{border-top:1px solid var(--line)}
+.parts-wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(1.5rem,4vw,3rem);align-items:center}
+.parts-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.part{background:var(--panel);padding:1.1rem .8rem;display:grid;justify-items:center;text-align:center;gap:.55rem;min-width:0;transition:background .25s}
+.part:hover{background:#12224a}
+.part i{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 35% 30%,#1b3c7a,#0a1630);box-shadow:inset 0 0 0 2px var(--blue)}
+.part svg{width:26px;height:26px;color:#fff}
+.part b{font-family:var(--display);font-weight:700;letter-spacing:.05em;text-transform:uppercase;font-size:1.02rem;line-height:1.15}
+.part span{color:var(--muted);font-size:.82rem;line-height:1.35}
+.parts-copy{display:grid;gap:1.1rem;min-width:0}
+.parts-copy .btn{justify-self:start}
+@media(max-width:900px){.parts-wrap{grid-template-columns:1fr}}
+@media(max-width:560px){.parts-grid{grid-template-columns:1fr 1fr}}
+@media (prefers-reduced-motion:no-preference){
+  .part:hover i svg{animation:spin 1.2s linear infinite}
+  .part:hover i.wob svg{animation:wob .5s ease-in-out infinite alternate}
+  .part i{animation:glow 3s ease-in-out infinite}
+  .part:nth-child(2n) i{animation-delay:1s}.part:nth-child(3n) i{animation-delay:2s}
+}
+@keyframes wob{from{transform:rotate(-12deg)}to{transform:rotate(12deg)}}
+@keyframes glow{0%,100%{box-shadow:inset 0 0 0 2px var(--blue)}50%{box-shadow:inset 0 0 0 2px var(--blue-hi),0 0 16px rgba(79,163,255,.45)}}
+
+/* collision */
+.col{background:linear-gradient(180deg,var(--ink),#0a1430);position:relative}
+.line{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;position:relative}
+.line::before{content:"";position:absolute;left:4%;right:4%;top:calc(50% - 1px);height:2px;background:repeating-linear-gradient(90deg,var(--blue) 0 14px,transparent 14px 24px);opacity:.35;z-index:0}
+.stage{background:var(--panel);border:1px solid var(--line);display:grid;grid-template-rows:auto 1fr;position:relative;z-index:1;min-width:0;transition:border-color .3s,transform .3s}
+.stage:hover{border-color:var(--blue);transform:translateY(-4px)}
+.stage .scene{aspect-ratio:16/10}
+.stage .qbody{padding:1.1rem 1.15rem 1.3rem;gap:.55rem}
+.stage .num{font-family:var(--display);font-style:italic;font-weight:800;font-size:1rem;letter-spacing:.14em;color:var(--blue-hi)}
+@media(max-width:1060px){.line{grid-template-columns:1fr 1fr}.line::before{display:none}}
+@media(max-width:600px){.line{grid-template-columns:1fr}}
+.col-info{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1rem,3vw,1.6rem);margin-top:clamp(1.5rem,4vw,2.4rem)}
+.col-info ol{margin:0;padding:0;list-style:none;display:grid;gap:.75rem;counter-reset:c}
+.col-info ol li{display:grid;grid-template-columns:34px 1fr;gap:.8rem;color:#C5D0E2;font-size:.97rem}
+.col-info ol li::before{counter-increment:c;content:counter(c);width:34px;height:34px;display:grid;place-items:center;font-family:var(--display);font-weight:800;font-style:italic;font-size:1.1rem;background:var(--blue);color:#fff;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)}
+.col-info ol b,.rights b{color:var(--fg);font-weight:600}
+.rights{display:grid;gap:.9rem;align-content:start}
+.rights ul{list-style:none;padding:0;margin:0;display:grid;gap:.6rem}
+.rights li{display:flex;gap:.6rem;color:#C5D0E2;font-size:.97rem}
+.rights li svg{width:18px;height:18px;color:var(--blue-hi);flex:none;margin-top:.25rem}
+@media(max-width:860px){.col-info{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:no-preference){
+  .a-scan{animation:scan 3s ease-in-out infinite alternate}
+  .a-pull{animation:pull 4s ease-in-out infinite}
+  .a-crush{animation:crush 4s ease-in-out infinite}
+  .a-fix{animation:fixp 4s ease-in-out infinite}
+  .a-paint{animation:paint 4.5s ease-in-out infinite;transform-box:fill-box;transform-origin:left}
+  .a-gun{animation:gun 4.5s ease-in-out infinite}
+  .a-mist{animation:mist .4s ease-in-out infinite alternate}
+  .a-shine{animation:shine 3.2s ease-in-out infinite}
+  .a-pop{animation:pop 3.2s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+  .a-drive{animation:drive 6s ease-in-out infinite}
+  .car-card:hover .wh{animation:spin .6s linear infinite;transform-box:fill-box;transform-origin:center}
+  .car-card .hl{animation:pulse 2.4s ease-in-out infinite}
+}
+@keyframes scan{from{transform:translateX(0)}to{transform:translateX(270px)}}
+@keyframes pull{0%,15%{transform:translateX(0)}55%,85%{transform:translateX(10px)}100%{transform:translateX(0)}}
+@keyframes crush{0%,20%{opacity:1}55%,85%{opacity:0}100%{opacity:1}}
+@keyframes fixp{0%,20%{opacity:0}55%,85%{opacity:1}100%{opacity:0}}
+@keyframes paint{0%,5%{transform:scaleX(0)}70%,90%{transform:scaleX(1)}100%{transform:scaleX(0)}}
+@keyframes gun{0%,5%{transform:translateX(0)}70%,90%{transform:translateX(190px)}100%{transform:translateX(0)}}
+@keyframes mist{from{opacity:.25}to{opacity:.7}}
+@keyframes shine{0%{transform:translateX(-120px) skewX(-20deg)}60%,100%{transform:translateX(380px) skewX(-20deg)}}
+@keyframes pop{0%,45%{transform:scale(0);opacity:0}60%{transform:scale(1.2);opacity:1}70%,92%{transform:scale(1);opacity:1}100%{transform:scale(0);opacity:0}}
+@keyframes drive{0%{transform:translateX(-340px)}30%,70%{transform:translateX(0)}100%{transform:translateX(360px)}}
+
+/* used cars */
+.sales{border-top:1px solid var(--line);overflow:hidden}
+.sales-hero{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,4vw,3rem);align-items:center;margin-bottom:clamp(2rem,4vw,3rem)}
+.road{position:relative;aspect-ratio:16/8;max-width:100%;background:radial-gradient(100% 120% at 50% 0,#14336f,#070B14 70%);border:1px solid var(--line);overflow:hidden}
+.road svg{width:100%;height:100%;display:block}
+.perks{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+.perk{display:flex;gap:.7rem;align-items:flex-start;background:var(--panel);border:1px solid var(--line);padding:.9rem}
+.perk svg{width:24px;height:24px;color:var(--blue-hi);flex:none}
+.perk b{display:block;font-family:var(--display);font-weight:700;letter-spacing:.04em;text-transform:uppercase;font-size:1.05rem}
+.perk span{color:var(--muted);font-size:.9rem;line-height:1.4}
+@media(max-width:900px){.sales-hero{grid-template-columns:1fr}}
+@media(max-width:480px){.perks{grid-template-columns:1fr}}
+.inv-bar{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:1.2rem}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem}
+.chips button{font-family:var(--display);font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-size:.95rem;background:var(--panel);color:var(--muted);border:1px solid var(--line);padding:.5rem 1rem;cursor:pointer}
+.chips button[aria-pressed="true"]{background:var(--blue);border-color:var(--blue);color:#fff}
+.sample-note{font-size:.85rem;color:#FFD66B;border:1px dashed #8a6a1c;padding:.35rem .7rem}
+.inv{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}
+@media(max-width:980px){.inv{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.inv{grid-template-columns:1fr}}
+.car-card{background:var(--panel);border:1px solid var(--line);display:grid;grid-template-rows:auto 1fr;min-width:0;position:relative;transition:transform .3s,border-color .3s}
+.car-card:hover{transform:translateY(-4px);border-color:var(--blue)}
+.car-card .pic{aspect-ratio:16/9;max-width:100%;background:radial-gradient(90% 90% at 50% 30%,#1a2d55,#0a1226);position:relative;overflow:hidden}
+.car-card .pic svg{width:100%;height:100%;display:block}
+.ribbon{position:absolute;top:10px;left:10px;font-family:var(--display);font-weight:700;letter-spacing:.16em;font-size:.72rem;background:#8a6a1c;color:#fff;padding:.15rem .5rem}
+.car-body{padding:1.1rem 1.15rem 1.25rem;display:grid;gap:.7rem;align-content:start}
+.car-top{display:flex;justify-content:space-between;align-items:baseline;gap:.8rem}
+.car-top h3{font-size:1.35rem}
+.price{font-family:var(--display);font-weight:800;font-size:1.5rem;color:var(--blue-hi);font-variant-numeric:tabular-nums;white-space:nowrap}
+.specs{display:flex;flex-wrap:wrap;gap:.4rem}
+.specs span{font-size:.82rem;color:var(--chrome);background:var(--ink);border:1px solid var(--line);padding:.15rem .5rem;font-variant-numeric:tabular-nums}
+.car-body .btn{justify-self:start;font-size:.95rem;padding:.6rem 1.1rem}
+.fine{color:var(--muted);font-size:.85rem;margin-top:1rem;max-width:80ch}
+.credit a{color:var(--blue-hi);text-decoration:none;font-weight:600}
+.credit a:hover{text-decoration:underline}
+
+/* before / after */
+.ba{background:var(--panel);position:relative}
+.ba::before{content:"";position:absolute;inset:0 0 auto;height:var(--cut);background:var(--ink);clip-path:polygon(0 0,100% 0,0 100%)}
+.ba .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(1.5rem,4vw,3.5rem);align-items:center;position:relative}
+.ba-copy{display:grid;gap:1.2rem;min-width:0}
+.ba-list{list-style:none;padding:0;margin:0;display:grid;gap:.7rem}
+.ba-list li{display:flex;gap:.7rem;align-items:flex-start;color:#C5D0E2}
+.ba-list svg{width:20px;height:20px;color:var(--blue-hi);flex:none;margin-top:.2rem}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:6px;position:relative;min-width:0}
+.compare figure{margin:0;position:relative;overflow:hidden}
+.compare img{width:100%;aspect-ratio:3/3.3;object-fit:cover}
+.compare figcaption{position:absolute;left:0;bottom:14px;background:var(--blue);color:#fff;font-family:var(--display);font-style:italic;font-weight:800;letter-spacing:.12em;font-size:1.3rem;padding:.3rem 1.2rem .3rem .9rem;clip-path:polygon(0 0,100% 0,calc(100% - 12px) 100%,0 100%)}
+.compare figure:first-child figcaption{background:#2A3550}
+.compare::after{content:"";position:absolute;top:-8px;bottom:-8px;left:calc(50% - 2px);width:4px;background:linear-gradient(var(--blue-hi),var(--blue));transform:skewX(-6deg);box-shadow:0 0 18px var(--blue)}
+@media (max-width:860px){.ba .wrap{grid-template-columns:1fr}}
+
+/* process */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;counter-reset:s}
+.step{position:relative;padding:1.6rem 1.3rem 1.4rem;background:linear-gradient(180deg,var(--panel-2),var(--panel));border-top:3px solid var(--blue);display:grid;gap:.6rem;align-content:start;min-width:0}
+.step::before{counter-increment:s;content:counter(s,decimal-leading-zero);font-family:var(--display);font-style:italic;font-weight:800;font-size:3rem;line-height:1;color:transparent;-webkit-text-stroke:1px var(--blue-hi)}
+.step p{color:var(--muted);font-size:.97rem}
+@media (max-width:960px){.steps{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.steps{grid-template-columns:1fr}}
+
+/* why */
+.why{background:linear-gradient(180deg,var(--ink),#0a1226)}
+.why-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(1.5rem,4vw,3rem);align-items:start}
+.why-points{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+.why-points div{background:var(--ink);padding:1.4rem;display:grid;gap:.5rem;min-width:0}
+.why-points svg{width:30px;height:30px;color:var(--blue-hi)}
+.why-points p{color:var(--muted);font-size:.96rem}
+.owner{background:var(--panel);border:1px solid var(--line);padding:clamp(1.4rem,3vw,2.2rem);display:grid;gap:1rem;position:relative;overflow:hidden}
+.owner::after{content:"";position:absolute;right:-40px;top:-40px;width:160px;height:160px;background:conic-gradient(from 200deg,var(--blue),transparent 40%);opacity:.25;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)}
+.owner blockquote{margin:0;font-size:1.15rem;color:#D3DCEA;line-height:1.55}
+.owner .sig{font-family:var(--display);font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:1.2rem}
+.owner .sig small{display:block;color:var(--muted);letter-spacing:.2em;font-size:.8rem}
+@media (max-width:900px){.why-grid{grid-template-columns:1fr}}
+@media (max-width:520px){.why-points{grid-template-columns:1fr}}
+
+/* insurance band */
+.claims{background:linear-gradient(100deg,var(--blue-deep),var(--blue) 70%,var(--blue-hi));padding-block:clamp(2.5rem,6vw,4rem);position:relative;overflow:hidden}
+.claims .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1.5rem;position:relative}
+.claims h2{font-size:clamp(2rem,4.6vw,3.2rem)}
+.claims p{color:#DCE8FF;max-width:52ch;margin-top:.6rem}
+.claims .btn-ghost{background:var(--ink);box-shadow:none}
+
+/* contact */
+.contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(1.5rem,4vw,3rem)}
+.info{display:grid;gap:1rem;align-content:start;min-width:0}
+.info-row{display:grid;grid-template-columns:48px 1fr;gap:1rem;align-items:center;padding:1rem;background:var(--panel);border:1px solid var(--line)}
+.info-row i{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:var(--blue)}
+.info-row i svg{width:22px;height:22px;color:#fff}
+.info-row small{display:block;font-family:var(--display);font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-size:.8rem}
+.info-row a,.info-row span{font-family:var(--display);font-weight:700;font-size:1.35rem;letter-spacing:.03em;text-decoration:none;word-break:break-word;user-select:all}
+.info-row .addr{font-size:1.15rem;user-select:text}
+.map-link{font-family:var(--display);font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue-hi);text-decoration:none;font-size:.95rem}
+form{background:var(--panel);border:1px solid var(--line);padding:clamp(1.25rem,3vw,2rem);display:grid;gap:1rem;min-width:0}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+label{display:grid;gap:.35rem;font-family:var(--display);font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:.85rem;color:var(--chrome)}
+input,select,textarea{font:inherit;font-size:1rem;letter-spacing:0;text-transform:none;color:var(--fg);background:var(--ink);border:1px solid var(--line);padding:.75rem .85rem;width:100%;min-width:0}
+input:focus,select:focus,textarea:focus{border-color:var(--blue-hi);outline:none;box-shadow:0 0 0 3px rgba(79,163,255,.2)}
+textarea{min-height:110px;resize:vertical}
+.form-note{color:var(--muted);font-size:.9rem}
+.done{border:1px solid var(--blue);background:#0b1a38;padding:1rem;display:grid;gap:.7rem}
+.done pre{white-space:pre-wrap;margin:0;font-family:var(--body);font-size:.95rem;color:#D3DCEA;background:var(--ink);padding:.8rem;border:1px solid var(--line);user-select:all}
+@media (max-width:900px){.contact-grid{grid-template-columns:1fr}}
+@media (max-width:520px){.row2{grid-template-columns:1fr}}
+
+footer{border-top:1px solid var(--line);padding-block:2.2rem calc(2.2rem + 64px)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1.2rem;align-items:center;color:var(--muted);font-size:.92rem}
+@media (min-width:861px){footer{padding-bottom:2.2rem}}
+
+/* mobile call bar */
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:55;display:none;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);padding-bottom:env(safe-area-inset-bottom,0px)}
+.callbar a{display:flex;justify-content:center;align-items:center;gap:.5rem;padding:1rem .5rem;background:var(--panel-2);font-family:var(--display);font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;font-size:1rem}
+.callbar a:first-child{background:var(--blue)}
+.callbar svg{width:18px;height:18px}
+@media (max-width:860px){.callbar{display:grid}}
+
+@media (prefers-reduced-motion:no-preference){
+  .hero-figure img{animation:roll .9s cubic-bezier(.2,.7,.2,1) both}
+  @keyframes roll{from{transform:translateX(40px);opacity:.4}to{transform:none;opacity:1}}
+}
+</style>
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}[hidden]{display:none!important}</style>
+</head>
+<body>
+
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="lgHex" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4FA3FF"/><stop offset=".55" stop-color="#1F6BFF"/><stop offset="1" stop-color="#0A2E8A"/></linearGradient>
+    <linearGradient id="lgChrome" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset=".48" stop-color="#C9D3E0"/><stop offset=".52" stop-color="#7F8BA0"/><stop offset="1" stop-color="#E6ECF5"/></linearGradient>
+    <clipPath id="cpHex"><polygon points="48,6 84,27 84,69 48,90 12,69 12,27"/></clipPath>
+  </defs>
+  <symbol id="mark" viewBox="0 0 96 96">
+    <circle cx="48" cy="48" r="46" fill="url(#lgChrome)"/>
+    <circle cx="48" cy="48" r="42" fill="#0A1630"/>
+    <circle cx="48" cy="48" r="38" fill="url(#lgHex)"/>
+    <path fill="#fff" fill-rule="evenodd" d="M30 20 H58 C74 20 82 32 79 48 C76 64 64 76 48 76 H18 Z M52 31 A17 17 0 1 0 52 65 A17 17 0 1 0 52 31 Z"/>
+    <g fill="#fff"><path d="M43 34 H61 a1.5 1.5 0 0 1 1.5 1.5 V47 H41.5 V35.5 A1.5 1.5 0 0 1 43 34 Z"/><path d="M48.5 47 H55.5 L57 58 H47 Z"/><circle cx="52" cy="59" r="4.5"/></g>
+    <path d="M42 38.5 H62 M42 42 H62" stroke="#1F6BFF" stroke-width="1.6"/>
+    <circle cx="52" cy="59" r="1.8" fill="#1F6BFF"/>
+  </symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-hand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.9-3.9a3 3 0 0 0-4.2 0l-.9.9a1 1 0 1 1-3-3l2.8-2.8a5.8 5.8 0 0 1 7 .9l.6.6"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/></symbol>
+  <symbol id="i-car" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9L18 10l-2.7-3.4A2 2 0 0 0 13.7 6H8.5a2 2 0 0 0-1.7.9L4.5 10.2 2.6 11A1.6 1.6 0 0 0 2 12.4V16c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/><path d="M9 17h6"/></symbol>
+  <symbol id="i-wrench" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.8-3.8a6 6 0 0 1-7.9 7.9l-6.9 6.9a2.1 2.1 0 0 1-3-3l6.9-6.9a6 6 0 0 1 7.9-7.9z"/></symbol>
+  <symbol id="i-oil" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h3l2-2h4l2 2h3l3-2v8l-3 2H4z"/><path d="M7 7V5h4"/><path d="M21 18.5a1.5 1.5 0 0 1-3 0c0-1 1.5-2.5 1.5-2.5s1.5 1.5 1.5 2.5z"/></symbol>
+  <symbol id="i-brake" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2"/></symbol>
+  <symbol id="i-susp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v3M12 19v3"/><path d="M8 5h8M8 19h8"/><path d="m8 7 8 2-8 2 8 2-8 2 8 2"/></symbol>
+  <symbol id="i-engine" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h3V6h6v2h2l2 2v2h2v4h-2v2h-3l-2 2H8l-2-2H4v-4H2v-2h2v-2z"/><path d="m12 10-1.5 3h3L12 16"/></symbol>
+  <symbol id="i-snow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20M5 5l14 14M19 5 5 19"/><path d="m9 4 3 2 3-2M9 20l3-2 3 2M4 9l2 3-2 3M20 9l-2 3 2 3"/></symbol>
+  <symbol id="i-spray" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 9h6l1 3v9H8v-9z"/><path d="M10 9V6h4v3"/><path d="M14 5h3M18 3v.01M20 5v.01M18 7v.01M21 2v.01"/></symbol>
+  <symbol id="i-dent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 16c3 0 4-5 9-5s6 5 9 5"/><path d="M3 20h18"/><path d="M12 3v5M9.5 5.5 12 8l2.5-2.5"/></symbol>
+  <symbol id="i-glass" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6c6-2 12-2 18 0l-2 12c-5-1.3-9-1.3-14 0z"/><path d="m9 9 2 3-1 3M13 9l1 2"/></symbol>
+  <symbol id="i-tire" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><path d="M12 2v6M12 16v6M2 12h6M16 12h6"/></symbol>
+  <symbol id="i-align" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="4" height="7" rx="1"/><rect x="17" y="3" width="4" height="7" rx="1"/><rect x="3" y="14" width="4" height="7" rx="1"/><rect x="17" y="14" width="4" height="7" rx="1"/><path d="M7 6.5h10M12 6.5v11M7 17.5h10"/></symbol>
+  <symbol id="i-tools" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V10l7-5 7 5v11"/><path d="M9 21v-6h6v6"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></symbol>
+  <symbol id="i-battery" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="13" rx="2"/><path d="M6 7V4h3v3M15 7V4h3v3M6 13h3M15 13h3M16.5 11.5v3"/></symbol>
+  <symbol id="i-filter" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="3"/><path d="M5 8h14M8 11v7M11 11v7M14 11v7M17 11v7"/><path d="M10 2h4v2h-4z"/></symbol>
+  <symbol id="i-wiper" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18c0-7 4-13 9-13s9 6 9 13"/><path d="M12 19 5 9"/><circle cx="12" cy="19" r="1.5"/></symbol>
+  <symbol id="i-plug" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2h4v4h-4zM9 6h6v4H9zM8 10h8v5H8zM11 15h2v4h-2zM12 19v3M14 21h2"/></symbol>
+  <symbol id="i-belt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="16" r="3.5"/><circle cx="18" cy="7" r="3.5"/><circle cx="17" cy="18" r="2"/><path d="M3.5 13.6 15.6 4.4M8.6 19 15.4 19.6M20.5 9.5 18.6 16.3"/></symbol>
+  <symbol id="i-bulb" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.3 1 2.1h5c0-.8.4-1.6 1-2.1A6 6 0 0 0 12 3z"/></symbol>
+  <symbol id="s-fb" viewBox="0 0 24 24"><path fill="currentColor" d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.5 1.6-1.5h1.7V4.4c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.5-4 4.1v2.4H7.6V14h2.8v8z"/></symbol>
+  <symbol id="s-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="s-tt" viewBox="0 0 24 24"><path fill="currentColor" d="M16.6 3c.4 2.2 1.8 3.7 4 3.9v3.1c-1.5 0-2.8-.4-4-1.2v6.4c0 3.5-2.6 5.8-5.8 5.8S5 18.6 5 15.3c0-3.4 2.9-5.9 6.5-5.4v3.2c-1.6-.4-3.3.6-3.3 2.2 0 1.3 1 2.4 2.5 2.4s2.6-1 2.6-2.9V3z"/></symbol>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Damot Auto Corporation home">
+      <svg aria-hidden="true"><use href="#mark"/></svg>
+      <span class="brand-name chrome-text">DAMOT<small>AUTO CORPORATION</small></span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#collision">Collision</a>
+      <a href="#cars">Used Cars</a>
+      <a href="#maintenance">Maintenance</a>
+      <a href="#contact">Contact</a>
+      <a class="btn btn-primary" href="#estimate">Free Estimate</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" style="padding:0">
+    <div class="speed" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="hero-copy">
+        <span class="eyebrow">Complete auto repair &amp; body shop · North York</span>
+        <h1><span class="chrome-text">Quality repairs.</span><span class="blue">Drive with confidence.</span></h1>
+        <p class="lede">Mechanical repair, collision work and paint under one roof on O'Connor Drive. Bring us a warning light or a crumpled fender and you deal with one shop, one estimate and one person who answers for the work.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="tel:+14167510966"><svg><use href="#i-phone"/></svg>416 751 0966</a>
+          <a class="btn btn-ghost" href="#estimate">Get a free estimate <svg><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+      <figure class="hero-figure" style="margin:0">
+        <img src="assets/img/hero.jpg" alt="Restored blue roadster with silver racing stripes on the Damot shop floor" width="1274" height="704">
+        <div class="plate"><svg><use href="#i-pin"/></svg>1861 O'Connor Dr · Unit 4</div>
+      </figure>
+    </div>
+  </section>
+
+  <div class="strip">
+    <div class="wrap">
+      <div><svg><use href="#i-hand"/></svg>Insurance claims welcome</div>
+      <div><svg><use href="#i-shield"/></svg>Quality workmanship</div>
+      <div><svg><use href="#i-wrench"/></svg>Mechanical + body, one shop</div>
+      <div><svg><use href="#i-car"/></svg>Get back on the road</div>
+    </div>
+  </div>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Our services</span>
+        <h2>Under the hood <span class="chrome-text">and</span> on the body</h2>
+        <p class="lede">Most Toronto shops do one or the other. Damot handles both, so a collision repair that also needs alignment, suspension or electrical work never leaves the building.</p>
+      </div>
+      <div class="svc-grid">
+        <div class="svc-col">
+          <div class="svc-col-head"><h3>Mechanical</h3><span>6 services</span></div>
+          <div class="svc"><i><svg><use href="#i-wrench"/></svg></i><div><b>General auto repair</b><p>Engine, exhaust, cooling and the repairs that keep a daily driver running.</p></div></div>
+          <div class="svc"><i><svg><use href="#i-oil"/></svg></i><div><b>Oil change &amp; maintenance</b><p>Oil and filter, fluids and scheduled service to your manufacturer's interval.</p></div></div>
+          <div class="svc"><i><svg><use href="#i-brake"/></svg></i><div><b>Brake service</b><p>Pads, rotors, calipers and brake fluid, inspected and tested before you drive away.</p></div></div>
+          <div class="svc"><i><svg><use href="#i-susp"/></svg></i><div><b>Suspension &amp; steering</b><p>Struts, shocks, control arms and tie rods for a car that tracks straight over Toronto potholes.</p></div></div>
+          <div class="svc"><i><svg><use href="#i-engine"/></svg></i><div><b>Diagnostics &amp; electrical</b><p>Computer scan of warning lights, battery, charging and wiring faults.</p></div></div>
+          <div class="svc"><i><svg><use href="#i-snow"/></svg></i><div><b>A/C service</b><p>Leak checks, recharge and repairs before the summer heat hits.</p></div></div>
+        </div>
+        <div class="svc-col">
+          <div class="svc-col-head"><h3>Body &amp; collision</h3><span>6 services</span></div>
+          <div class="svc"><i><svg><use href="#i-dent"/></svg></i><div><b>Body repair</b><p>Collision damage, dents, bumpers and panels restored to factory lines.</p></div></div>
+          <div class="svc"><i><svg><use href="#i-spray"/></svg></i><div><b>Painting &amp; refinishing</b><p>Colour-matched paint and clear coat so the repair disappears into the rest of the car.</p></div></div>
+          <div class="svc"><i><svg><use href="#i-car"/></svg></i><div><b>Body prep</b><p>Sanding, filler and primer work done properly so the finish lasts.</p></div></div>
+          <div class="svc"><i><svg><use href="#i-glass"/></svg></i><div><b>Glass replacement</b><p>Windshields and side glass replaced and sealed.</p></div></div>
+          <div class="svc"><i><svg><use href="#i-tire"/></svg></i><div><b>Tire service &amp; balancing</b><p>Seasonal swaps, mounting and balancing for a smooth ride.</p></div></div>
+          <div class="svc"><i><svg><use href="#i-align"/></svg></i><div><b>Wheel alignment</b><p>Set after every collision repair and any time the car pulls or wears tires unevenly.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="quick" style="padding-bottom:0">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Quick service</span>
+        <h2>Oil, tires <span class="chrome-text">and winter ready</span></h2>
+        <p class="lede">The three jobs that keep a Toronto car safe all year. Book ahead in October and November, when every shop in the city fills up with tire swaps.</p>
+      </div>
+      <div class="quick-grid"><article class="qcard"><div class="scene"><svg viewBox="0 0 320 200" role="img" aria-label="Animated oil bottle pouring fresh oil into an engine">
+<defs><linearGradient id="qOil" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFD66B"/><stop offset="1" stop-color="#E09A12"/></linearGradient>
+<linearGradient id="qMetal" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3A4A66"/><stop offset="1" stop-color="#1A2338"/></linearGradient>
+<linearGradient id="qBottle" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#4FA3FF"/><stop offset="1" stop-color="#1F6BFF"/></linearGradient></defs>
+<rect x="40" y="120" width="180" height="62" rx="6" fill="url(#qMetal)"/>
+<rect x="56" y="100" width="148" height="26" rx="4" fill="#2A3550"/>
+<g fill="#1A2338"><rect x="66" y="132" width="16" height="40" rx="3"/><rect x="92" y="132" width="16" height="40" rx="3"/><rect x="118" y="132" width="16" height="40" rx="3"/><rect x="144" y="132" width="16" height="40" rx="3"/></g>
+<rect x="170" y="88" width="30" height="14" rx="3" fill="#C9D3E0"/><rect x="176" y="80" width="18" height="10" rx="2" fill="#7F8BA0"/>
+<path d="M190 66 Q186 73 185 82" class="a-stream" fill="none" stroke="url(#qOil)" stroke-width="5" stroke-linecap="round"/>
+<g transform="translate(221.7 49.2) rotate(-115)"><g class="a-tilt"><g transform="translate(0 -25)"><rect x="-18" y="0" width="36" height="52" rx="7" fill="url(#qBottle)"/><rect x="-6" y="-11" width="12" height="13" rx="2" fill="#C9D3E0"/><rect x="-12" y="14" width="24" height="22" rx="3" fill="#fff" opacity=".9"/><rect x="-12" y="22" width="24" height="4" fill="#1F6BFF"/></g></g></g>
+<circle class="a-drop" cx="185" cy="84" r="2.6" fill="#FFC53D"/><circle class="a-drop d2" cx="186" cy="84" r="2.2" fill="#FFC53D"/>
+<g transform="translate(272,70)"><rect x="0" y="0" width="22" height="104" rx="11" fill="#0A1630" stroke="#C9D3E0" stroke-width="2"/><rect class="a-fill" x="5" y="10" width="12" height="88" rx="6" fill="url(#qOil)"/><path d="M-6 30 H0 M-6 60 H0 M-6 90 H0" stroke="#93A1BA" stroke-width="2"/><text x="11" y="122" text-anchor="middle" font-family="Barlow Condensed,Arial" font-weight="700" font-size="11" fill="#93A1BA" letter-spacing="1">LEVEL</text></g>
+</svg><span class="tagline">Every 5,000–12,000 km</span></div>
+<div class="qbody"><h3>Oil change</h3><p>Conventional, blend or full synthetic oil matched to your engine and its manual, with a new filter every time.</p><ul><li><svg><use href="#i-check"/></svg>Oil grade matched to your engine</li><li><svg><use href="#i-check"/></svg>New oil filter</li><li><svg><use href="#i-check"/></svg>Fluids topped up</li><li><svg><use href="#i-check"/></svg>Quick multi-point check on the hoist</li></ul><a class="btn btn-primary" href="#estimate" data-svc="Oil change &amp; maintenance">Book oil change <svg><use href="#i-arrow"/></svg></a></div></article><article class="qcard"><div class="scene"><svg viewBox="0 0 320 200" role="img" aria-label="Animated car lifted on a jack while the wheel spins and lug nuts come off">
+<defs><linearGradient id="qBody" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4FA3FF"/><stop offset="1" stop-color="#1F4FCC"/></linearGradient>
+<linearGradient id="qRim" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".5" stop-color="#C9D3E0"/><stop offset="1" stop-color="#7F8BA0"/></linearGradient></defs>
+<rect x="0" y="176" width="320" height="24" fill="#0A1630"/><path d="M0 176 H320" stroke="#1E2C47" stroke-width="2"/>
+<g class="a-lift">
+<path d="M20 120 Q30 84 80 78 L150 74 Q182 54 226 58 L290 80 Q306 86 306 108 L306 126 L20 126 Z" fill="url(#qBody)"/>
+<path d="M162 76 Q186 62 222 64 L262 82 L162 82 Z" fill="#0A1630" opacity=".55"/>
+<rect x="290" y="96" width="14" height="8" rx="2" fill="#FFE9A8"/>
+<path d="M30 126 H306" stroke="#0A2E8A" stroke-width="3"/>
+<g class="a-spin" ><circle cx="230" cy="136" r="34" fill="#11151F"/><circle cx="230" cy="136" r="34" fill="none" stroke="#2A3550" stroke-width="5" stroke-dasharray="6 5"/><circle cx="230" cy="136" r="21" fill="url(#qRim)"/><g fill="#7F8BA0"><rect x="227" y="117" width="6" height="38" rx="3"/><rect x="211" y="133" width="38" height="6" rx="3"/></g><circle cx="230" cy="136" r="6" fill="#1F6BFF"/></g>
+<circle cx="80" cy="136" r="34" fill="#11151F"/><circle cx="80" cy="136" r="21" fill="url(#qRim)"/><circle cx="80" cy="136" r="6" fill="#1F6BFF"/>
+</g>
+<g class="a-nut"><polygon points="262,124 268,121 274,124 274,131 268,134 262,131" fill="#C9D3E0"/></g>
+<g transform="translate(270,150)"><rect x="0" y="-6" width="40" height="12" rx="4" fill="#1F6BFF"/><rect x="-10" y="-3" width="12" height="6" fill="#C9D3E0"/><rect x="26" y="4" width="10" height="22" rx="3" fill="#2A3550"/></g>
+<path d="M130 176 L150 146 L170 176 Z" fill="#E09A12"/><rect x="138" y="140" width="24" height="8" rx="2" fill="#C9D3E0" class="a-lift"/>
+</svg><span class="tagline">Spring &amp; fall</span></div>
+<div class="qbody"><h3>Tire change</h3><p>Seasonal swaps, whether your other set is on rims or needs to be mounted and balanced.</p><ul><li><svg><use href="#i-check"/></svg>Swap on rims or mount &amp; balance</li><li><svg><use href="#i-check"/></svg>Lug nuts torqued to spec</li><li><svg><use href="#i-check"/></svg>Pressures set for the season</li><li><svg><use href="#i-check"/></svg>Tread and wear checked</li></ul><a class="btn btn-primary" href="#estimate" data-svc="Tires &amp; alignment">Book tire change <svg><use href="#i-arrow"/></svg></a></div></article><article class="qcard"><div class="scene"><svg viewBox="0 0 320 200" role="img" aria-label="Animated winter tire rolling through falling snow with a thermometer near 7 degrees">
+<defs><linearGradient id="qRim2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".5" stop-color="#C9D3E0"/><stop offset="1" stop-color="#7F8BA0"/></linearGradient>
+<pattern id="qTread" width="12" height="12" patternUnits="userSpaceOnUse"><path d="M0 6 L3 2 L6 6 L9 2 L12 6" fill="none" stroke="#3A4A66" stroke-width="1.6"/></pattern></defs>
+<g class="a-ground"><path d="M0 168 Q20 160 40 168 T80 168 T120 168 T160 168 T200 168 T240 168 T280 168 T320 168 T360 168 T400 168 V200 H0 Z" fill="#E6ECF5"/></g>
+<g class="a-roll">
+<circle cx="130" cy="112" r="58" fill="#11151F"/>
+<circle cx="130" cy="112" r="56" fill="none" stroke="url(#qTread)" stroke-width="14"/>
+<g stroke="#11151F" stroke-width="5"><path d="M130 54 V68" transform="rotate(0 130 112)"/><path d="M130 54 V68" transform="rotate(20 130 112)"/><path d="M130 54 V68" transform="rotate(40 130 112)"/><path d="M130 54 V68" transform="rotate(60 130 112)"/><path d="M130 54 V68" transform="rotate(80 130 112)"/><path d="M130 54 V68" transform="rotate(100 130 112)"/><path d="M130 54 V68" transform="rotate(120 130 112)"/><path d="M130 54 V68" transform="rotate(140 130 112)"/><path d="M130 54 V68" transform="rotate(160 130 112)"/><path d="M130 54 V68" transform="rotate(180 130 112)"/><path d="M130 54 V68" transform="rotate(200 130 112)"/><path d="M130 54 V68" transform="rotate(220 130 112)"/><path d="M130 54 V68" transform="rotate(240 130 112)"/><path d="M130 54 V68" transform="rotate(260 130 112)"/><path d="M130 54 V68" transform="rotate(280 130 112)"/><path d="M130 54 V68" transform="rotate(300 130 112)"/><path d="M130 54 V68" transform="rotate(320 130 112)"/><path d="M130 54 V68" transform="rotate(340 130 112)"/></g>
+<circle cx="130" cy="112" r="34" fill="url(#qRim2)"/>
+<g fill="#5E6B82"><path d="M126 84 H134 L132 104 H128 Z" transform="rotate(0 130 112)"/><path d="M126 84 H134 L132 104 H128 Z" transform="rotate(72 130 112)"/><path d="M126 84 H134 L132 104 H128 Z" transform="rotate(144 130 112)"/><path d="M126 84 H134 L132 104 H128 Z" transform="rotate(216 130 112)"/><path d="M126 84 H134 L132 104 H128 Z" transform="rotate(288 130 112)"/></g>
+<circle cx="130" cy="112" r="9" fill="#1F6BFF"/><circle cx="130" cy="112" r="3" fill="#fff"/>
+</g>
+<g fill="#fff"><circle class="a-snow" cx="30" cy="0" r="2.5" style="animation-delay:0s;animation-duration:4s"/><circle class="a-snow" cx="70" cy="0" r="1.8" style="animation-delay:1.2s;animation-duration:5s"/><circle class="a-snow" cx="110" cy="0" r="2.2" style="animation-delay:2.5s;animation-duration:4.4s"/><circle class="a-snow" cx="160" cy="0" r="1.6" style="animation-delay:0.6s;animation-duration:5.2s"/><circle class="a-snow" cx="200" cy="0" r="2.6" style="animation-delay:1.8s;animation-duration:4.2s"/><circle class="a-snow" cx="240" cy="0" r="1.8" style="animation-delay:3s;animation-duration:5s"/><circle class="a-snow" cx="280" cy="0" r="2.2" style="animation-delay:0.3s;animation-duration:4.6s"/><circle class="a-snow" cx="310" cy="0" r="1.5" style="animation-delay:2.2s;animation-duration:5.4s"/><circle class="a-snow" cx="50" cy="0" r="1.4" style="animation-delay:3.4s;animation-duration:4.8s"/><circle class="a-snow" cx="225" cy="0" r="1.4" style="animation-delay:4s;animation-duration:5s"/></g>
+<g transform="translate(252,40)"><rect x="0" y="0" width="22" height="100" rx="11" fill="#0A1630" stroke="#C9D3E0" stroke-width="2"/><rect class="a-merc" x="7" y="24" width="8" height="66" rx="4" fill="#4FA3FF"/><circle cx="11" cy="94" r="10" fill="#4FA3FF"/>
+<text x="30" y="66" font-family="Barlow Condensed,Arial" font-weight="800" font-size="16" fill="#fff" class="a-pulse">7°C</text></g>
+</svg><span class="tagline">Below 7°C</span></div>
+<div class="qbody"><h3>Winter tires</h3><p>Winter tires stay soft and grip in the cold where all-seasons harden. Put them on once temperatures stay below 7°C.</p><ul><li><svg><use href="#i-check"/></svg>Help choosing the right winter tire</li><li><svg><use href="#i-check"/></svg>Installed and balanced</li><li><svg><use href="#i-check"/></svg>TPMS sensors checked</li><li><svg><use href="#i-check"/></svg>Ontario insurers must offer a winter-tire discount, so ask yours</li></ul><a class="btn btn-primary" href="#estimate" data-svc="Tires &amp; alignment">Book winter tires <svg><use href="#i-arrow"/></svg></a></div></article></div>
+    </div>
+  </section>
+
+  <section class="mnt" id="maintenance">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Auto maintenance</span>
+        <h2>Stay ahead <span class="chrome-text">of the breakdown</span></h2>
+        <p class="lede">Regular maintenance is the cheapest repair there is. Pick your odometer reading to see what's typically due, or check what Toronto's seasons ask of your car right now.</p>
+      </div>
+      <div class="mnt-grid">
+        <div class="panel">
+          <div class="panel-head"><h3>Service by kilometres</h3><span>Typical intervals</span></div>
+          <div class="odo" role="tablist" aria-label="Odometer milestone" id="odo">
+            <button role="tab" id="km-8" data-km="8,000" aria-selected="true">8,000</button>
+            <button role="tab" id="km-20" data-km="20,000" aria-selected="false">20,000</button>
+            <button role="tab" id="km-40" data-km="40,000" aria-selected="false">40,000</button>
+            <button role="tab" id="km-80" data-km="80,000" aria-selected="false">80,000</button>
+            <button role="tab" id="km-100" data-km="100,000+" aria-selected="false">100,000+</button>
+          </div>
+          <div class="gauge" aria-live="polite"><span id="odo-val">8,000</span><small>KM</small></div>
+          <ul class="checks" id="odo-list"></ul>
+          <p class="note">Intervals vary by make, model and driving. Your owner's manual has the final word, and we'll check it against your car at every visit.</p>
+          <a class="btn btn-primary" href="#estimate" style="justify-self:start">Book maintenance <svg><use href="#i-arrow"/></svg></a>
+        </div>
+        <div class="seasons" id="seasons">
+          <div class="season" data-months="10,11"><h3>Winter prep <em>OCT – NOV</em><span class="badge">DUE NOW</span></h3><p>Winter tires on once it stays below 7°C, battery load test, wiper blades, washer fluid and coolant strength.</p></div>
+          <div class="season" data-months="12,1,2"><h3>Deep winter <em>DEC – FEB</em><span class="badge">DUE NOW</span></h3><p>Salt and slush are hard on brakes, lines and the underbody. Keep tires at pressure and watch for warning lights.</p></div>
+          <div class="season" data-months="3,4,5"><h3>Spring reset <em>MAR – MAY</em><span class="badge">DUE NOW</span></h3><p>Swap back to all-seasons, check alignment and suspension after pothole season, inspect brakes and wash off the salt.</p></div>
+          <div class="season" data-months="6,7,8,9"><h3>Summer &amp; road trips <em>JUN – SEP</em><span class="badge">DUE NOW</span></h3><p>A/C service, cooling system and hoses, tire tread before long drives, and fluids topped up.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="parts" id="parts">
+    <div class="wrap parts-wrap">
+      <div class="parts-copy">
+        <span class="eyebrow">Parts &amp; tires</span>
+        <h2>The parts you need, <span class="chrome-text">at a fair price</span></h2>
+        <p class="lede">No running around to parts stores. Damot sources the tires and spare parts your car needs for maintenance and repair, quotes you a fair price, and installs them in the same visit.</p>
+        <p class="lede" style="font-size:.95rem">OEM or quality aftermarket, your choice. We explain the difference so you can pick what fits your budget.</p>
+        <a class="btn btn-primary" href="#estimate" data-svc="Parts &amp; tires quote">Get a parts quote <svg><use href="#i-arrow"/></svg></a>
+      </div>
+      <div class="parts-grid"><div class="part"><i class=""><svg><use href="#i-tire"/></svg></i><b>Tires</b><span>All-season, winter and performance</span></div><div class="part"><i class=""><svg><use href="#i-brake"/></svg></i><b>Brake parts</b><span>Pads, rotors, calipers</span></div><div class="part"><i class="wob"><svg><use href="#i-battery"/></svg></i><b>Batteries</b><span>Tested and installed</span></div><div class="part"><i class="wob"><svg><use href="#i-filter"/></svg></i><b>Filters</b><span>Oil, air and cabin</span></div><div class="part"><i class="wob"><svg><use href="#i-wiper"/></svg></i><b>Wiper blades</b><span>Winter and all-season</span></div><div class="part"><i class="wob"><svg><use href="#i-plug"/></svg></i><b>Spark plugs</b><span>Matched to your engine</span></div><div class="part"><i class=""><svg><use href="#i-belt"/></svg></i><b>Belts &amp; hoses</b><span>Drive belts, timing belts, hoses</span></div><div class="part"><i class="wob"><svg><use href="#i-bulb"/></svg></i><b>Bulbs &amp; lights</b><span>Headlights, brake lights, signals</span></div></div>
+    </div>
+  </section>
+
+  <section class="col" id="collision">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Collision repair</span>
+        <h2>After the crash, <span class="chrome-text">the comeback</span></h2>
+        <p class="lede">From a scraped bumper to a front end that met a pole, Damot takes your car through the same four stages every time. Mechanical damage behind the panels gets fixed in the same building, so nothing is left for another shop.</p>
+      </div>
+      <div class="line"><article class="stage"><div class="scene"><svg viewBox="0 0 320 200" role="img" aria-label="Animated scanner sweeping across a damaged car to map the damage">
+<g transform="translate(0 22)"><path d="M20 112 Q22 92 48 88 L96 84 Q120 58 150 56 L206 56 Q228 58 246 82 L262 86 L270 98 L282 90 L292 104 L286 112 L296 118 L20 118 Z" fill="#3A4A66"/><path d="M104 84 Q124 64 150 62 L176 62 L176 84 Z M184 62 L204 62 Q222 64 236 84 L184 84 Z" fill="#0A1630"/>
+<path d="M262 86 L270 98 L282 90 L292 104" fill="none" stroke="#FF5A5A" stroke-width="2"/>
+<g class="x"><circle cx="80" cy="118" r="22" fill="#0B0F18"/><circle cx="80" cy="118" r="14" fill="#C9D3E0"/><g fill="#7F8BA0"><rect x="78.4" y="104" width="3.2" height="28" rx="1.6" transform="rotate(0 80 118)"/><rect x="78.4" y="104" width="3.2" height="28" rx="1.6" transform="rotate(60 80 118)"/><rect x="78.4" y="104" width="3.2" height="28" rx="1.6" transform="rotate(120 80 118)"/></g><circle cx="80" cy="118" r="4" fill="#1F6BFF"/></g><g class="x"><circle cx="250" cy="118" r="22" fill="#0B0F18"/><circle cx="250" cy="118" r="14" fill="#C9D3E0"/><g fill="#7F8BA0"><rect x="248.4" y="104" width="3.2" height="28" rx="1.6" transform="rotate(0 250 118)"/><rect x="248.4" y="104" width="3.2" height="28" rx="1.6" transform="rotate(60 250 118)"/><rect x="248.4" y="104" width="3.2" height="28" rx="1.6" transform="rotate(120 250 118)"/></g><circle cx="250" cy="118" r="4" fill="#1F6BFF"/></g>
+<g fill="#FF5A5A"><circle class="a-pulse" cx="276" cy="96" r="6" opacity=".9"/><circle class="a-pulse" cx="290" cy="110" r="4" style="animation-delay:.6s"/><circle class="a-pulse" cx="262" cy="90" r="3.5" style="animation-delay:1.2s"/></g></g>
+<g class="a-scan"><rect x="20" y="40" width="3" height="130" fill="#4FA3FF"/><rect x="12" y="40" width="19" height="130" fill="#4FA3FF" opacity=".15"/></g>
+<g font-family="Barlow Condensed,Arial" font-weight="700" font-size="11" letter-spacing="1.5"><rect x="190" y="14" width="118" height="24" fill="#0A1630" stroke="#FF5A5A"/><text x="249" y="30.5" text-anchor="middle" fill="#FF8A8A">3 DAMAGE POINTS</text></g>
+</svg><span class="tagline">Inspect</span></div><div class="qbody"><span class="num">Stage 1</span><h3>Damage assessment</h3><p>We strip back the damaged area and map every point of impact, including the hidden damage behind bumpers and panels, then write the estimate for you or your insurer.</p></div></article><article class="stage"><div class="scene"><svg viewBox="0 0 320 200" role="img" aria-label="Animated frame machine pulling a crushed front end back into shape">
+<rect x="10" y="168" width="270" height="10" fill="#2A3550"/><rect x="40" y="150" width="10" height="20" fill="#3A4A66"/><rect x="230" y="150" width="10" height="20" fill="#3A4A66"/>
+<rect x="296" y="40" width="14" height="138" fill="#1F6BFF"/><rect x="290" y="34" width="26" height="10" fill="#4FA3FF"/>
+<path d="M296 98 L288 98" stroke="#C9D3E0" stroke-width="4"/>
+<g transform="translate(-10 28)">
+<path d="M20 112 Q22 92 48 88 L96 84 Q120 58 150 56 L206 56 Q228 58 246 82 L250 82 L250 118 L20 118 Z" fill="#3A4A66"/><path d="M104 84 Q124 64 150 62 L176 62 L176 84 Z M184 62 L204 62 Q222 64 236 84 L184 84 Z" fill="#0A1630"/>
+<g class="a-pull"><path class="a-crush" d="M246 82 L262 86 L270 98 L282 90 L292 104 L286 112 L296 118 L246 118 Z" fill="#3A4A66"/><path class="a-fix" d="M246 82 L290 90 Q304 94 304 110 L304 118 L246 118 Z" fill="#4A5A78" opacity="0"/></g>
+<g class="x"><circle cx="80" cy="118" r="22" fill="#0B0F18"/><circle cx="80" cy="118" r="14" fill="#C9D3E0"/><g fill="#7F8BA0"><rect x="78.4" y="104" width="3.2" height="28" rx="1.6" transform="rotate(0 80 118)"/><rect x="78.4" y="104" width="3.2" height="28" rx="1.6" transform="rotate(60 80 118)"/><rect x="78.4" y="104" width="3.2" height="28" rx="1.6" transform="rotate(120 80 118)"/></g><circle cx="80" cy="118" r="4" fill="#1F6BFF"/></g><g class="x"><circle cx="250" cy="118" r="22" fill="#0B0F18"/><circle cx="250" cy="118" r="14" fill="#C9D3E0"/><g fill="#7F8BA0"><rect x="248.4" y="104" width="3.2" height="28" rx="1.6" transform="rotate(0 250 118)"/><rect x="248.4" y="104" width="3.2" height="28" rx="1.6" transform="rotate(60 250 118)"/><rect x="248.4" y="104" width="3.2" height="28" rx="1.6" transform="rotate(120 250 118)"/></g><circle cx="250" cy="118" r="4" fill="#1F6BFF"/></g></g>
+<path class="a-stream" d="M290 112 L306 100" stroke="#C9D3E0" stroke-width="3" fill="none"/>
+<g font-family="Barlow Condensed,Arial" font-weight="700" font-size="11" letter-spacing="1.5"><rect x="14" y="14" width="128" height="24" fill="#0A1630" stroke="#1F6BFF"/><text x="78" y="30.5" text-anchor="middle" fill="#4FA3FF">PULLED TO FACTORY SPEC</text></g>
+</svg><span class="tagline">Structure</span></div><div class="qbody"><span class="num">Stage 2</span><h3>Frame &amp; body repair</h3><p>Bent structure is pulled back to the manufacturer's measurements. Panels are repaired where they can be and replaced where they can't.</p></div></article><article class="stage"><div class="scene"><svg viewBox="0 0 320 200" role="img" aria-label="Animated spray gun painting a primer-grey door panel blue">
+<defs><clipPath id="cpDoor"><path d="M40 50 L250 50 Q270 50 274 70 L280 150 L40 150 Z"/></clipPath><linearGradient id="gPaint" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6FB6FF"/><stop offset=".5" stop-color="#1F6BFF"/><stop offset="1" stop-color="#0A2E8A"/></linearGradient></defs>
+<path d="M40 50 L250 50 Q270 50 274 70 L280 150 L40 150 Z" fill="#8792A6"/>
+<g clip-path="url(#cpDoor)"><rect class="a-paint" x="40" y="40" width="245" height="120" fill="url(#gPaint)"/><rect x="40" y="80" width="245" height="4" fill="#fff" opacity=".25"/></g>
+<path d="M40 50 L250 50 Q270 50 274 70 L280 150 L40 150 Z" fill="none" stroke="#0A1630" stroke-width="2"/><rect x="200" y="96" width="34" height="7" rx="3.5" fill="#C9D3E0"/>
+<g class="a-gun"><ellipse class="a-mist" cx="58" cy="100" rx="22" ry="34" fill="#4FA3FF" opacity=".4"/>
+<g transform="translate(66 112)"><rect x="0" y="-22" width="40" height="16" rx="4" fill="#C9D3E0"/><rect x="-10" y="-17" width="12" height="6" fill="#7F8BA0"/><rect x="22" y="-6" width="9" height="34" rx="3" fill="#2A3550"/><rect x="18" y="-44" width="16" height="22" rx="3" fill="#4FA3FF" opacity=".85"/></g></g>
+<g font-family="Barlow Condensed,Arial" font-weight="700" font-size="11" letter-spacing="1.5"><rect x="196" y="162" width="112" height="24" fill="#0A1630" stroke="#1F6BFF"/><text x="252" y="178.5" text-anchor="middle" fill="#4FA3FF">COLOUR MATCHED</text></g>
+</svg><span class="tagline">Refinish</span></div><div class="qbody"><span class="num">Stage 3</span><h3>Paint &amp; refinishing</h3><p>Body prep, primer, then colour matched to your car's paint code and blended into the panels next to it, finished with clear coat.</p></div></article><article class="stage"><div class="scene"><svg viewBox="0 0 320 200" role="img" aria-label="Animated shine sweeping across the finished car with a quality check badge">
+<defs><clipPath id="cpCar"><path d="M20 112 Q22 92 48 88 L96 84 Q120 58 150 56 L206 56 Q228 58 246 82 L290 90 Q304 94 304 110 L304 118 L20 118 Z" transform="translate(0 22)"/></clipPath></defs>
+<g transform="translate(0 22)"><defs><linearGradient id="gQc" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".45"/><stop offset=".35" stop-color="#1F6BFF"/><stop offset="1" stop-color="#1F6BFF" stop-opacity=".75"/></linearGradient></defs>
+<ellipse cx="162" cy="140" rx="150" ry="8" fill="#000" opacity=".35"/>
+<path d="M20 112 Q22 92 48 88 L96 84 Q120 58 150 56 L206 56 Q228 58 246 82 L290 90 Q304 94 304 110 L304 118 L20 118 Z" fill="#1F6BFF"/><path d="M20 112 Q22 92 48 88 L96 84 Q120 58 150 56 L206 56 Q228 58 246 82 L290 90 Q304 94 304 110 L304 118 L20 118 Z" fill="url(#gQc)"/>
+<path d="M104 84 Q124 64 150 62 L176 62 L176 84 Z M184 62 L204 62 Q222 64 236 84 L184 84 Z" fill="#0A1630" opacity=".8"/>
+<rect x="292" y="94" width="12" height="7" rx="2" fill="#FFE9A8" class="hl"/><rect x="20" y="96" width="8" height="7" rx="2" fill="#FF5A5A"/>
+<g class="x"><circle cx="80" cy="118" r="22" fill="#0B0F18"/><circle cx="80" cy="118" r="14" fill="#C9D3E0"/><g fill="#7F8BA0"><rect x="78.4" y="104" width="3.2" height="28" rx="1.6" transform="rotate(0 80 118)"/><rect x="78.4" y="104" width="3.2" height="28" rx="1.6" transform="rotate(60 80 118)"/><rect x="78.4" y="104" width="3.2" height="28" rx="1.6" transform="rotate(120 80 118)"/></g><circle cx="80" cy="118" r="4" fill="#1F6BFF"/></g><g class="x"><circle cx="250" cy="118" r="22" fill="#0B0F18"/><circle cx="250" cy="118" r="14" fill="#C9D3E0"/><g fill="#7F8BA0"><rect x="248.4" y="104" width="3.2" height="28" rx="1.6" transform="rotate(0 250 118)"/><rect x="248.4" y="104" width="3.2" height="28" rx="1.6" transform="rotate(60 250 118)"/><rect x="248.4" y="104" width="3.2" height="28" rx="1.6" transform="rotate(120 250 118)"/></g><circle cx="250" cy="118" r="4" fill="#1F6BFF"/></g></g>
+<g clip-path="url(#cpCar)"><rect class="a-shine" x="0" y="40" width="40" height="140" fill="#fff" opacity=".45"/></g>
+<g class="a-pop"><circle cx="270" cy="44" r="24" fill="#0A1630" stroke="#4FA3FF" stroke-width="3"/><path d="M259 44 L267 52 L282 36" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></g>
+</svg><span class="tagline">Deliver</span></div><div class="qbody"><span class="num">Stage 4</span><h3>Quality check &amp; delivery</h3><p>Lights, sensors, alignment and fit are checked, the car is cleaned and road-tested, and we call you to pick it up.</p></div></article></div>
+      <div class="col-info">
+        <div class="panel">
+          <h3>Just had an accident?</h3>
+          <ol>
+            <li><span><b>Stay safe.</b> Move out of traffic if you can, turn on your hazards and call 911 if anyone is hurt.</span></li>
+            <li><span><b>Swap information.</b> Names, phone numbers, plates, licences and insurance details of every driver involved.</span></li>
+            <li><span><b>Take photos.</b> All vehicles, the damage, the road and any witnesses' contact details.</span></li>
+            <li><span><b>Report it.</b> In Toronto, a collision with no injuries and more than $5,000 in total damage is reported at a Collision Reporting Centre within 24 hours.</span></li>
+            <li><span><b>Call us.</b> Ask the tow operator to bring the car to Damot at 1861 O'Connor Drive, then call your insurer.</span></li>
+          </ol>
+        </div>
+        <div class="panel rights">
+          <h3>Insurance claims, handled</h3>
+          <p class="lede" style="font-size:1rem">You choose who repairs your car. Tell your insurer you want Damot and we'll take it from there.</p>
+          <ul>
+            <li><svg><use href="#i-check"/></svg>We write the estimate and send photos to your adjuster</li>
+            <li><svg><use href="#i-check"/></svg>Hidden damage found during the repair goes back to the insurer for approval</li>
+            <li><svg><use href="#i-check"/></svg>Mechanical, alignment and body work all billed in one claim</li>
+            <li><svg><use href="#i-check"/></svg>Paying yourself instead? You get the same written estimate</li>
+          </ul>
+          <div class="cta-row"><a class="btn btn-primary" href="#estimate" data-svc="Collision / body repair">Start a collision estimate <svg><use href="#i-arrow"/></svg></a><a class="btn btn-ghost" href="tel:+14167510966"><svg><use href="#i-phone"/></svg>416 751 0966</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ba" id="work">
+    <div class="wrap">
+      <div class="ba-copy">
+        <span class="eyebrow">Our work</span>
+        <h2>From wrecked <span class="chrome-text">to road-ready</span></h2>
+        <p class="lede">Front-end collision on a classic roadster: crushed nose, shattered lights, cracked panels. Rebuilt, prepped and refinished in the original blue with the silver stripes laid back on.</p>
+        <ul class="ba-list">
+          <li><svg><use href="#i-check"/></svg>Structural and panel repair</li>
+          <li><svg><use href="#i-check"/></svg>Colour-matched paint and stripes</li>
+          <li><svg><use href="#i-check"/></svg>Lights, chrome and trim refitted</li>
+          <li><svg><use href="#i-check"/></svg>Alignment checked before delivery</li>
+        </ul>
+      </div>
+      <div class="compare">
+        <figure><img src="assets/img/before.jpg" alt="Blue roadster with a crushed front end before repair"><figcaption>BEFORE</figcaption></figure>
+        <figure><img src="assets/img/after.jpg" alt="The same roadster fully repaired and repainted"><figcaption>AFTER</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="sales" id="cars">
+    <div class="wrap">
+      <div class="sales-hero">
+        <div class="head" style="margin:0">
+          <span class="eyebrow">Used car sales</span>
+          <h2>Pre-owned cars <span class="chrome-text">checked by mechanics</span></h2>
+          <p class="lede">Every car on our lot goes over the same hoist as our repair customers' cars. You're buying from the people who'll service it afterwards.</p>
+          <div class="perks">
+            <div class="perk"><svg><use href="#i-wrench"/></svg><div><b>Shop inspected</b><span>Brakes, suspension, engine and electrical checked in our own bays</span></div></div>
+            <div class="perk"><svg><use href="#i-shield"/></svg><div><b>Safety certified</b><span>Sold with an Ontario Safety Standards Certificate</span></div></div>
+            <div class="perk"><svg><use href="#i-doc"/></svg><div><b>History report</b><span>Vehicle history shown before you buy</span></div></div>
+            <div class="perk"><svg><use href="#i-car"/></svg><div><b>Test drive</b><span>Book a time and drive it around North York</span></div></div>
+          </div>
+        </div>
+        <div class="road"><svg viewBox="0 0 640 320" role="img" aria-label="Animated used car driving onto the Damot lot">
+<rect x="0" y="250" width="640" height="70" fill="#0A1226"/>
+<g class="a-ground"><path d="M0 284 H660" stroke="#C9D3E0" stroke-width="4" stroke-dasharray="24 16"/></g>
+<g fill="#1F6BFF" opacity=".5"><path d="M40 250 L60 120 L80 250 Z"/><path d="M560 250 L580 110 L600 250 Z"/></g>
+<path d="M60 120 L580 110" stroke="#C9D3E0" stroke-width="1.5"/>
+<g fill="#4FA3FF"><path d="M60 120 l10 22 l-20 0 Z" opacity="0.5"/><path d="M112 119 l10 22 l-20 0 Z" opacity="0.9"/><path d="M164 118 l10 22 l-20 0 Z" opacity="0.5"/><path d="M216 117 l10 22 l-20 0 Z" opacity="0.9"/><path d="M268 116 l10 22 l-20 0 Z" opacity="0.5"/><path d="M320 115 l10 22 l-20 0 Z" opacity="0.9"/><path d="M372 114 l10 22 l-20 0 Z" opacity="0.5"/><path d="M424 113 l10 22 l-20 0 Z" opacity="0.9"/><path d="M476 112 l10 22 l-20 0 Z" opacity="0.5"/><path d="M528 111 l10 22 l-20 0 Z" opacity="0.9"/></g>
+<g class="a-drive"><g transform="translate(140 110) scale(1.1)"><g transform="translate(0 0)"><defs><linearGradient id="gRoad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".45"/><stop offset=".35" stop-color="#1F6BFF"/><stop offset="1" stop-color="#1F6BFF" stop-opacity=".75"/></linearGradient></defs>
+<ellipse cx="162" cy="140" rx="150" ry="8" fill="#000" opacity=".35"/>
+<path d="M20 112 Q20 84 44 80 L84 76 L104 46 Q108 40 118 40 L232 40 Q244 40 250 50 L270 78 L292 84 Q304 88 304 106 L304 118 L20 118 Z" fill="#1F6BFF"/><path d="M20 112 Q20 84 44 80 L84 76 L104 46 Q108 40 118 40 L232 40 Q244 40 250 50 L270 78 L292 84 Q304 88 304 106 L304 118 L20 118 Z" fill="url(#gRoad)"/>
+<path d="M110 76 L122 50 L170 50 L170 76 Z M178 50 L230 50 Q238 50 242 56 L256 76 L178 76 Z" fill="#0A1630" opacity=".8"/>
+<rect x="292" y="94" width="12" height="7" rx="2" fill="#FFE9A8" class="hl"/><rect x="20" y="96" width="8" height="7" rx="2" fill="#FF5A5A"/>
+<g class="x"><circle cx="80" cy="118" r="22" fill="#0B0F18"/><circle cx="80" cy="118" r="14" fill="#C9D3E0"/><g fill="#7F8BA0"><rect x="78.4" y="104" width="3.2" height="28" rx="1.6" transform="rotate(0 80 118)"/><rect x="78.4" y="104" width="3.2" height="28" rx="1.6" transform="rotate(60 80 118)"/><rect x="78.4" y="104" width="3.2" height="28" rx="1.6" transform="rotate(120 80 118)"/></g><circle cx="80" cy="118" r="4" fill="#1F6BFF"/></g><g class="x"><circle cx="250" cy="118" r="22" fill="#0B0F18"/><circle cx="250" cy="118" r="14" fill="#C9D3E0"/><g fill="#7F8BA0"><rect x="248.4" y="104" width="3.2" height="28" rx="1.6" transform="rotate(0 250 118)"/><rect x="248.4" y="104" width="3.2" height="28" rx="1.6" transform="rotate(60 250 118)"/><rect x="248.4" y="104" width="3.2" height="28" rx="1.6" transform="rotate(120 250 118)"/></g><circle cx="250" cy="118" r="4" fill="#1F6BFF"/></g></g></g></g>
+<g font-family="Barlow Condensed,Arial" font-weight="800" font-style="italic"><text x="320" y="56" text-anchor="middle" font-size="34" fill="#fff" letter-spacing="3">DAMOT</text><text x="320" y="80" text-anchor="middle" font-size="15" fill="#93A1BA" letter-spacing="6" font-style="normal" font-weight="600">QUALITY USED CARS</text></g>
+</svg></div>
+      </div>
+      <div class="inv-bar">
+        <div class="chips" role="group" aria-label="Filter by body type">
+          <button type="button" id="ch-all" data-f="all" aria-pressed="true">All</button>
+          <button type="button" id="ch-sedan" data-f="sedan" aria-pressed="false">Sedans</button>
+          <button type="button" id="ch-suv" data-f="suv" aria-pressed="false">SUVs</button>
+          <button type="button" id="ch-truck" data-f="truck" aria-pressed="false">Trucks</button>
+        </div>
+        <span class="sample-note">Sample listings for layout. Real cars and prices coming soon.</span>
+      </div>
+      <div class="inv" id="inv"><article class="car-card" data-type="suv"><div class="pic"><svg viewBox="0 0 324 160" role="img" aria-label="2019 Toyota RAV4 LE illustration"><g transform="translate(0 0)"><defs><linearGradient id="gInv0" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".45"/><stop offset=".35" stop-color="#C9D3E0"/><stop offset="1" stop-color="#C9D3E0" stop-opacity=".75"/></linearGradient></defs>
+<ellipse cx="162" cy="140" rx="150" ry="8" fill="#000" opacity=".35"/>
+<path d="M20 112 Q20 84 44 80 L84 76 L104 46 Q108 40 118 40 L232 40 Q244 40 250 50 L270 78 L292 84 Q304 88 304 106 L304 118 L20 118 Z" fill="#C9D3E0"/><path d="M20 112 Q20 84 44 80 L84 76 L104 46 Q108 40 118 40 L232 40 Q244 40 250 50 L270 78 L292 84 Q304 88 304 106 L304 118 L20 118 Z" fill="url(#gInv0)"/>
+<path d="M110 76 L122 50 L170 50 L170 76 Z M178 50 L230 50 Q238 50 242 56 L256 76 L178 76 Z" fill="#0A1630" opacity=".8"/>
+<rect x="292" y="94" width="12" height="7" rx="2" fill="#FFE9A8" class="hl"/><rect x="20" y="96" width="8" height="7" rx="2" fill="#FF5A5A"/>
+<g class="wh"><circle cx="80" cy="118" r="22" fill="#0B0F18"/><circle cx="80" cy="118" r="14" fill="#C9D3E0"/><g fill="#7F8BA0"><rect x="78.4" y="104" width="3.2" height="28" rx="1.6" transform="rotate(0 80 118)"/><rect x="78.4" y="104" width="3.2" height="28" rx="1.6" transform="rotate(60 80 118)"/><rect x="78.4" y="104" width="3.2" height="28" rx="1.6" transform="rotate(120 80 118)"/></g><circle cx="80" cy="118" r="4" fill="#1F6BFF"/></g><g class="wh"><circle cx="250" cy="118" r="22" fill="#0B0F18"/><circle cx="250" cy="118" r="14" fill="#C9D3E0"/><g fill="#7F8BA0"><rect x="248.4" y="104" width="3.2" height="28" rx="1.6" transform="rotate(0 250 118)"/><rect x="248.4" y="104" width="3.2" height="28" rx="1.6" transform="rotate(60 250 118)"/><rect x="248.4" y="104" width="3.2" height="28" rx="1.6" transform="rotate(120 250 118)"/></g><circle cx="250" cy="118" r="4" fill="#1F6BFF"/></g></g></svg><span class="ribbon">SAMPLE</span></div>
+<div class="car-body"><div class="car-top"><h3>2019 Toyota RAV4 LE</h3><span class="price">$xx,xxx</span></div>
+<div class="specs"><span>92,000 km</span><span>Automatic</span><span>AWD</span><span>SUV</span></div>
+<a class="btn btn-ghost" href="#estimate" data-svc="Used car inquiry" data-car="2019 Toyota RAV4 LE">Ask about this car <svg><use href="#i-arrow"/></svg></a></div></article><article class="car-card" data-type="sedan"><div class="pic"><svg viewBox="0 0 324 160" role="img" aria-label="2018 Honda Civic LX illustration"><g transform="translate(0 0)"><defs><linearGradient id="gInv1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".45"/><stop offset=".35" stop-color="#1F6BFF"/><stop offset="1" stop-color="#1F6BFF" stop-opacity=".75"/></linearGradient></defs>
+<ellipse cx="162" cy="140" rx="150" ry="8" fill="#000" opacity=".35"/>
+<path d="M20 112 Q22 92 48 88 L96 84 Q120 58 150 56 L206 56 Q228 58 246 82 L290 90 Q304 94 304 110 L304 118 L20 118 Z" fill="#1F6BFF"/><path d="M20 112 Q22 92 48 88 L96 84 Q120 58 150 56 L206 56 Q228 58 246 82 L290 90 Q304 94 304 110 L304 118 L20 118 Z" fill="url(#gInv1)"/>
+<path d="M104 84 Q124 64 150 62 L176 62 L176 84 Z M184 62 L204 62 Q222 64 236 84 L184 84 Z" fill="#0A1630" opacity=".8"/>
+<rect x="292" y="94" width="12" height="7" rx="2" fill="#FFE9A8" class="hl"/><rect x="20" y="96" width="8" height="7" rx="2" fill="#FF5A5A"/>
+<g class="wh"><circle cx="80" cy="118" r="22" fill="#0B0F18"/><circle cx="80" cy="118" r="14" fill="#C9D3E0"/><g fill="#7F8BA0"><rect x="78.4" y="104" width="3.2" height="28" rx="1.6" transform="rotate(0 80 118)"/><rect x="78.4" y="104" width="3.2" height="28" rx="1.6" transform="rotate(60 80 118)"/><rect x="78.4" y="104" width="3.2" height="28" rx="1.6" transform="rotate(120 80 118)"/></g><circle cx="80" cy="118" r="4" fill="#1F6BFF"/></g><g class="wh"><circle cx="250" cy="118" r="22" fill="#0B0F18"/><circle cx="250" cy="118" r="14" fill="#C9D3E0"/><g fill="#7F8BA0"><rect x="248.4" y="104" width="3.2" height="28" rx="1.6" transform="rotate(0 250 118)"/><rect x="248.4" y="104" width="3.2" height="28" rx="1.6" transform="rotate(60 250 118)"/><rect x="248.4" y="104" width="3.2" height="28" rx="1.6" transform="rotate(120 250 118)"/></g><circle cx="250" cy="118" r="4" fill="#1F6BFF"/></g></g></svg><span class="ribbon">SAMPLE</span></div>
+<div class="car-body"><div class="car-top"><h3>2018 Honda Civic LX</h3><span class="price">$xx,xxx</span></div>
+<div class="specs"><span>104,000 km</span><span>Automatic</span><span>FWD</span><span>Sedan</span></div>
+<a class="btn btn-ghost" href="#estimate" data-svc="Used car inquiry" data-car="2018 Honda Civic LX">Ask about this car <svg><use href="#i-arrow"/></svg></a></div></article><article class="car-card" data-type="truck"><div class="pic"><svg viewBox="0 0 324 160" role="img" aria-label="2017 Ford F-150 XLT illustration"><g transform="translate(0 0)"><defs><linearGradient id="gInv2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".45"/><stop offset=".35" stop-color="#2A2F3A"/><stop offset="1" stop-color="#2A2F3A" stop-opacity=".75"/></linearGradient></defs>
+<ellipse cx="162" cy="140" rx="150" ry="8" fill="#000" opacity=".35"/>
+<path d="M18 118 L18 80 L140 80 L140 52 Q142 44 152 44 L214 44 Q222 44 228 52 L246 78 L292 84 Q304 86 304 100 L304 118 Z" fill="#2A2F3A"/><path d="M18 118 L18 80 L140 80 L140 52 Q142 44 152 44 L214 44 Q222 44 228 52 L246 78 L292 84 Q304 86 304 100 L304 118 Z" fill="url(#gInv2)"/>
+<path d="M150 76 L150 54 Q150 50 156 50 L210 50 Q216 50 220 56 L236 76 Z" fill="#0A1630" opacity=".8"/>
+<rect x="292" y="94" width="12" height="7" rx="2" fill="#FFE9A8" class="hl"/><rect x="20" y="96" width="8" height="7" rx="2" fill="#FF5A5A"/>
+<g class="wh"><circle cx="80" cy="118" r="22" fill="#0B0F18"/><circle cx="80" cy="118" r="14" fill="#C9D3E0"/><g fill="#7F8BA0"><rect x="78.4" y="104" width="3.2" height="28" rx="1.6" transform="rotate(0 80 118)"/><rect x="78.4" y="104" width="3.2" height="28" rx="1.6" transform="rotate(60 80 118)"/><rect x="78.4" y="104" width="3.2" height="28" rx="1.6" transform="rotate(120 80 118)"/></g><circle cx="80" cy="118" r="4" fill="#1F6BFF"/></g><g class="wh"><circle cx="250" cy="118" r="22" fill="#0B0F18"/><circle cx="250" cy="118" r="14" fill="#C9D3E0"/><g fill="#7F8BA0"><rect x="248.4" y="104" width="3.2" height="28" rx="1.6" transform="rotate(0 250 118)"/><rect x="248.4" y="104" width="3.2" height="28" rx="1.6" transform="rotate(60 250 118)"/><rect x="248.4" y="104" width="3.2" height="28" rx="1.6" transform="rotate(120 250 118)"/></g><circle cx="250" cy="118" r="4" fill="#1F6BFF"/></g></g></svg><span class="ribbon">SAMPLE</span></div>
+<div class="car-body"><div class="car-top"><h3>2017 Ford F-150 XLT</h3><span class="price">$xx,xxx</span></div>
+<div class="specs"><span>128,000 km</span><span>Automatic</span><span>4x4</span><span>Truck</span></div>
+<a class="btn btn-ghost" href="#estimate" data-svc="Used car inquiry" data-car="2017 Ford F-150 XLT">Ask about this car <svg><use href="#i-arrow"/></svg></a></div></article><article class="car-card" data-type="sedan"><div class="pic"><svg viewBox="0 0 324 160" role="img" aria-label="2020 Hyundai Elantra Preferred illustration"><g transform="translate(0 0)"><defs><linearGradient id="gInv3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".45"/><stop offset=".35" stop-color="#B8202B"/><stop offset="1" stop-color="#B8202B" stop-opacity=".75"/></linearGradient></defs>
+<ellipse cx="162" cy="140" rx="150" ry="8" fill="#000" opacity=".35"/>
+<path d="M20 112 Q22 92 48 88 L96 84 Q120 58 150 56 L206 56 Q228 58 246 82 L290 90 Q304 94 304 110 L304 118 L20 118 Z" fill="#B8202B"/><path d="M20 112 Q22 92 48 88 L96 84 Q120 58 150 56 L206 56 Q228 58 246 82 L290 90 Q304 94 304 110 L304 118 L20 118 Z" fill="url(#gInv3)"/>
+<path d="M104 84 Q124 64 150 62 L176 62 L176 84 Z M184 62 L204 62 Q222 64 236 84 L184 84 Z" fill="#0A1630" opacity=".8"/>
+<rect x="292" y="94" width="12" height="7" rx="2" fill="#FFE9A8" class="hl"/><rect x="20" y="96" width="8" height="7" rx="2" fill="#FF5A5A"/>
+<g class="wh"><circle cx="80" cy="118" r="22" fill="#0B0F18"/><circle cx="80" cy="118" r="14" fill="#C9D3E0"/><g fill="#7F8BA0"><rect x="78.4" y="104" width="3.2" height="28" rx="1.6" transform="rotate(0 80 118)"/><rect x="78.4" y="104" width="3.2" height="28" rx="1.6" transform="rotate(60 80 118)"/><rect x="78.4" y="104" width="3.2" height="28" rx="1.6" transform="rotate(120 80 118)"/></g><circle cx="80" cy="118" r="4" fill="#1F6BFF"/></g><g class="wh"><circle cx="250" cy="118" r="22" fill="#0B0F18"/><circle cx="250" cy="118" r="14" fill="#C9D3E0"/><g fill="#7F8BA0"><rect x="248.4" y="104" width="3.2" height="28" rx="1.6" transform="rotate(0 250 118)"/><rect x="248.4" y="104" width="3.2" height="28" rx="1.6" transform="rotate(60 250 118)"/><rect x="248.4" y="104" width="3.2" height="28" rx="1.6" transform="rotate(120 250 118)"/></g><circle cx="250" cy="118" r="4" fill="#1F6BFF"/></g></g></svg><span class="ribbon">SAMPLE</span></div>
+<div class="car-body"><div class="car-top"><h3>2020 Hyundai Elantra Preferred</h3><span class="price">$xx,xxx</span></div>
+<div class="specs"><span>68,000 km</span><span>Automatic</span><span>FWD</span><span>Sedan</span></div>
+<a class="btn btn-ghost" href="#estimate" data-svc="Used car inquiry" data-car="2020 Hyundai Elantra Preferred">Ask about this car <svg><use href="#i-arrow"/></svg></a></div></article><article class="car-card" data-type="suv"><div class="pic"><svg viewBox="0 0 324 160" role="img" aria-label="2016 Mazda CX-5 GS illustration"><g transform="translate(0 0)"><defs><linearGradient id="gInv4" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".45"/><stop offset=".35" stop-color="#E6ECF5"/><stop offset="1" stop-color="#E6ECF5" stop-opacity=".75"/></linearGradient></defs>
+<ellipse cx="162" cy="140" rx="150" ry="8" fill="#000" opacity=".35"/>
+<path d="M20 112 Q20 84 44 80 L84 76 L104 46 Q108 40 118 40 L232 40 Q244 40 250 50 L270 78 L292 84 Q304 88 304 106 L304 118 L20 118 Z" fill="#E6ECF5"/><path d="M20 112 Q20 84 44 80 L84 76 L104 46 Q108 40 118 40 L232 40 Q244 40 250 50 L270 78 L292 84 Q304 88 304 106 L304 118 L20 118 Z" fill="url(#gInv4)"/>
+<path d="M110 76 L122 50 L170 50 L170 76 Z M178 50 L230 50 Q238 50 242 56 L256 76 L178 76 Z" fill="#0A1630" opacity=".8"/>
+<rect x="292" y="94" width="12" height="7" rx="2" fill="#FFE9A8" class="hl"/><rect x="20" y="96" width="8" height="7" rx="2" fill="#FF5A5A"/>
+<g class="wh"><circle cx="80" cy="118" r="22" fill="#0B0F18"/><circle cx="80" cy="118" r="14" fill="#C9D3E0"/><g fill="#7F8BA0"><rect x="78.4" y="104" width="3.2" height="28" rx="1.6" transform="rotate(0 80 118)"/><rect x="78.4" y="104" width="3.2" height="28" rx="1.6" transform="rotate(60 80 118)"/><rect x="78.4" y="104" width="3.2" height="28" rx="1.6" transform="rotate(120 80 118)"/></g><circle cx="80" cy="118" r="4" fill="#1F6BFF"/></g><g class="wh"><circle cx="250" cy="118" r="22" fill="#0B0F18"/><circle cx="250" cy="118" r="14" fill="#C9D3E0"/><g fill="#7F8BA0"><rect x="248.4" y="104" width="3.2" height="28" rx="1.6" transform="rotate(0 250 118)"/><rect x="248.4" y="104" width="3.2" height="28" rx="1.6" transform="rotate(60 250 118)"/><rect x="248.4" y="104" width="3.2" height="28" rx="1.6" transform="rotate(120 250 118)"/></g><circle cx="250" cy="118" r="4" fill="#1F6BFF"/></g></g></svg><span class="ribbon">SAMPLE</span></div>
+<div class="car-body"><div class="car-top"><h3>2016 Mazda CX-5 GS</h3><span class="price">$xx,xxx</span></div>
+<div class="specs"><span>121,000 km</span><span>Automatic</span><span>AWD</span><span>SUV</span></div>
+<a class="btn btn-ghost" href="#estimate" data-svc="Used car inquiry" data-car="2016 Mazda CX-5 GS">Ask about this car <svg><use href="#i-arrow"/></svg></a></div></article><article class="car-card" data-type="truck"><div class="pic"><svg viewBox="0 0 324 160" role="img" aria-label="2015 Chevrolet Silverado LT illustration"><g transform="translate(0 0)"><defs><linearGradient id="gInv5" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".45"/><stop offset=".35" stop-color="#0A2E8A"/><stop offset="1" stop-color="#0A2E8A" stop-opacity=".75"/></linearGradient></defs>
+<ellipse cx="162" cy="140" rx="150" ry="8" fill="#000" opacity=".35"/>
+<path d="M18 118 L18 80 L140 80 L140 52 Q142 44 152 44 L214 44 Q222 44 228 52 L246 78 L292 84 Q304 86 304 100 L304 118 Z" fill="#0A2E8A"/><path d="M18 118 L18 80 L140 80 L140 52 Q142 44 152 44 L214 44 Q222 44 228 52 L246 78 L292 84 Q304 86 304 100 L304 118 Z" fill="url(#gInv5)"/>
+<path d="M150 76 L150 54 Q150 50 156 50 L210 50 Q216 50 220 56 L236 76 Z" fill="#0A1630" opacity=".8"/>
+<rect x="292" y="94" width="12" height="7" rx="2" fill="#FFE9A8" class="hl"/><rect x="20" y="96" width="8" height="7" rx="2" fill="#FF5A5A"/>
+<g class="wh"><circle cx="80" cy="118" r="22" fill="#0B0F18"/><circle cx="80" cy="118" r="14" fill="#C9D3E0"/><g fill="#7F8BA0"><rect x="78.4" y="104" width="3.2" height="28" rx="1.6" transform="rotate(0 80 118)"/><rect x="78.4" y="104" width="3.2" height="28" rx="1.6" transform="rotate(60 80 118)"/><rect x="78.4" y="104" width="3.2" height="28" rx="1.6" transform="rotate(120 80 118)"/></g><circle cx="80" cy="118" r="4" fill="#1F6BFF"/></g><g class="wh"><circle cx="250" cy="118" r="22" fill="#0B0F18"/><circle cx="250" cy="118" r="14" fill="#C9D3E0"/><g fill="#7F8BA0"><rect x="248.4" y="104" width="3.2" height="28" rx="1.6" transform="rotate(0 250 118)"/><rect x="248.4" y="104" width="3.2" height="28" rx="1.6" transform="rotate(60 250 118)"/><rect x="248.4" y="104" width="3.2" height="28" rx="1.6" transform="rotate(120 250 118)"/></g><circle cx="250" cy="118" r="4" fill="#1F6BFF"/></g></g></svg><span class="ribbon">SAMPLE</span></div>
+<div class="car-body"><div class="car-top"><h3>2015 Chevrolet Silverado LT</h3><span class="price">$xx,xxx</span></div>
+<div class="specs"><span>146,000 km</span><span>Automatic</span><span>4x4</span><span>Truck</span></div>
+<a class="btn btn-ghost" href="#estimate" data-svc="Used car inquiry" data-car="2015 Chevrolet Silverado LT">Ask about this car <svg><use href="#i-arrow"/></svg></a></div></article></div>
+      <p class="fine">Advertised prices are all-in: they include every fee except HST and licensing. Inventory changes daily, so call 416 751 0966 to confirm a car is still available.</p>
+    </div>
+  </section>
+
+  <section id="process">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">How it works</span>
+        <h2>Four steps <span class="chrome-text">back to the road</span></h2>
+      </div>
+      <div class="steps">
+        <div class="step"><h3>Call or send photos</h3><p>Phone the shop or send pictures of the damage or a description of the problem.</p></div>
+        <div class="step"><h3>Inspection &amp; estimate</h3><p>We look at the car and give you a clear written estimate before any work starts.</p></div>
+        <div class="step"><h3>Insurance handled</h3><p>For collision work, we deal with your insurer and the claim paperwork.</p></div>
+        <div class="step"><h3>Repair &amp; pickup</h3><p>We repair, check and road-test, then call you when it's ready.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="why">
+    <div class="wrap why-grid">
+      <div style="display:grid;gap:2rem;min-width:0">
+        <div class="head" style="margin:0">
+          <span class="eyebrow">Why Damot</span>
+          <h2>An independent shop <span class="chrome-text">with the owner on the floor</span></h2>
+        </div>
+        <div class="why-points">
+          <div><svg><use href="#i-tools"/></svg><h3>One shop</h3><p>Mechanical, body and paint in the same bays. No sending your car across town.</p></div>
+          <div><svg><use href="#i-doc"/></svg><h3>Estimate first</h3><p>You see the price and approve it before the work begins.</p></div>
+          <div><svg><use href="#i-hand"/></svg><h3>Claims welcome</h3><p>Collision repairs billed to insurance, with the paperwork taken care of.</p></div>
+          <div><svg><use href="#i-user"/></svg><h3>Direct line</h3><p>Call the owner's cell. You talk to the person responsible for your car.</p></div>
+        </div>
+      </div>
+      <aside class="owner">
+        <span class="eyebrow">From the owner</span>
+        <blockquote>When your car comes in, it gets fixed properly the first time, and you get it back looking and driving the way it should.</blockquote>
+        <div class="sig">Mekuanint Addis Atalay<small>Owner · Damot Auto Corporation</small></div>
+        <a class="btn btn-ghost" href="tel:+14372674611" style="justify-self:start"><svg><use href="#i-phone"/></svg>Cell 437 267 4611</a>
+      </aside>
+    </div>
+  </section>
+
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Visit or call</span>
+        <h2>Find us <span class="chrome-text">in North York</span></h2>
+      </div>
+      <div class="contact-grid">
+        <div class="info">
+          <div class="info-row"><i><svg><use href="#i-pin"/></svg></i><div><small>Shop</small><span class="addr">1861 O'Connor Drive, Unit 4<br>North York, ON M4A 1X1</span><br><a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=1861+O%27Connor+Drive+Unit+4+North+York+ON+M4A+1X1" target="_blank" rel="noopener">Open in Google Maps →</a></div></div>
+          <div class="info-row"><i><svg><use href="#i-phone"/></svg></i><div><small>Office</small><a href="tel:+14167510966">416 751 0966</a></div></div>
+          <div class="info-row"><i><svg><use href="#i-phone"/></svg></i><div><small>Owner's cell</small><a href="tel:+14372674611">437 267 4611</a></div></div>
+          <div class="info-row"><i><svg><use href="#i-mail"/></svg></i><div><small>Email</small><a href="mailto:info@damotauto.ca">info@damotauto.ca</a></div></div>
+          <div class="social-row"><small>Follow our work</small><div class="social"><!-- TODO: replace with Damot's real profile URLs -->
+      <a href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="Damot Auto on TikTok"><svg><use href="#s-tt"/></svg></a>
+      <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Damot Auto on Facebook"><svg><use href="#s-fb"/></svg></a>
+      <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Damot Auto on Instagram"><svg><use href="#s-ig"/></svg></a>
+    </div></div>
+        </div>
+
+        <form id="estimate" novalidate>
+          <h3>Request a free estimate</h3>
+          <div class="row2">
+            <label for="f-name">Name<input id="f-name" name="name" autocomplete="name" required placeholder="Your name"></label>
+            <label for="f-phone">Phone<input id="f-phone" name="phone" type="tel" autocomplete="tel" required placeholder="416 555 0123"></label>
+          </div>
+          <div class="row2">
+            <label for="f-car">Vehicle<input id="f-car" name="vehicle" placeholder="2019 Honda Civic"></label>
+            <label for="f-svc">Service<select id="f-svc" name="service">
+              <option>Collision / body repair</option><option>Painting &amp; refinishing</option><option>Glass replacement</option><option>General auto repair</option><option>Oil change &amp; maintenance</option><option>Brakes</option><option>Suspension &amp; steering</option><option>Diagnostics &amp; electrical</option><option>A/C service</option><option>Tires &amp; alignment</option><option>Parts &amp; tires quote</option><option>Used car inquiry</option><option>Not sure</option>
+            </select></label>
+          </div>
+          <label for="f-msg">What's going on?<textarea id="f-msg" name="message" placeholder="Rear-ended on the DVP, bumper and trunk damage. Going through insurance."></textarea></label>
+          <label for="f-ins" style="display:flex;gap:.6rem;align-items:center;text-transform:none;letter-spacing:0;font-family:var(--body);font-size:.97rem;font-weight:500"><input id="f-ins" name="insurance" type="checkbox" style="width:auto"> This is an insurance claim</label>
+          <button class="btn btn-primary" type="submit" style="justify-self:start">Prepare my request <svg><use href="#i-arrow"/></svg></button>
+          <p class="form-note" id="f-err" hidden>Please add your name and phone number so the shop can reach you.</p>
+          <div class="done" id="f-done" hidden>
+            <b>Your request is ready. Call 416 751 0966 or email info@damotauto.ca with these details:</b>
+            <pre id="f-out"></pre>
+            <button class="btn btn-ghost" type="button" id="f-copy" style="justify-self:start">Copy details</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Back to top"><svg aria-hidden="true"><use href="#mark"/></svg><span class="brand-name chrome-text">DAMOT<small>AUTO CORPORATION</small></span></a>
+    <span>Complete auto repair &amp; body shop · 1861 O'Connor Drive, Unit 4, North York</span>
+    <div class="social"><!-- TODO: replace with Damot's real profile URLs -->
+      <a href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="Damot Auto on TikTok"><svg><use href="#s-tt"/></svg></a>
+      <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Damot Auto on Facebook"><svg><use href="#s-fb"/></svg></a>
+      <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Damot Auto on Instagram"><svg><use href="#s-ig"/></svg></a>
+    </div>
+    <span>© 2026 Damot Auto Corporation</span>
+    <span class="credit">Designed &amp; developed by <a href="https://melakudigitalinc.com/" target="_blank" rel="noopener">Melaku Digital Inc.</a></span>
+  </div>
+</footer>
+
+<div class="callbar">
+  <a href="tel:+14167510966"><svg><use href="#i-phone"/></svg>Call shop</a>
+  <a href="#estimate"><svg><use href="#i-doc"/></svg>Estimate</a>
+</div>
+
+<script>
+(function(){
+  var f=document.getElementById('estimate'),err=document.getElementById('f-err'),done=document.getElementById('f-done'),out=document.getElementById('f-out');
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var v=function(id){return document.getElementById(id).value.trim()};
+    if(!v('f-name')||!v('f-phone')){err.hidden=false;return}
+    err.hidden=true;
+    out.textContent=['Estimate request — Damot Auto','Name: '+v('f-name'),'Phone: '+v('f-phone'),'Vehicle: '+(v('f-car')||'—'),'Service: '+v('f-svc'),'Insurance claim: '+(document.getElementById('f-ins').checked?'Yes':'No'),'Details: '+(v('f-msg')||'—')].join('\n');
+    done.hidden=false;
+  });
+  document.getElementById('f-copy').addEventListener('click',function(){
+    var b=this;
+    var sel=function(){var r=document.createRange();r.selectNodeContents(out);var s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selected — copy it'};
+    try{navigator.clipboard.writeText(out.textContent).then(function(){b.textContent='Copied'},sel)}catch(x){sel()}
+  });
+  document.querySelectorAll('[data-svc]').forEach(function(a){a.addEventListener('click',function(){var t=a.getAttribute('data-svc').replace('&amp;','&');var sel=document.getElementById('f-svc');for(var i=0;i<sel.options.length;i++){if(sel.options[i].text===t){sel.selectedIndex=i}}var car=a.getAttribute('data-car');if(car){document.getElementById('f-car').value=car;document.getElementById('f-msg').value='I\'m interested in the '+car+'. Is it still available, and when can I book a test drive?'}})});
+  var chips=document.querySelectorAll('.chips button');
+  chips.forEach(function(b){b.addEventListener('click',function(){var f=b.dataset.f;chips.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});document.querySelectorAll('#inv .car-card').forEach(function(c){c.hidden=!(f==='all'||c.dataset.type===f)})})});
+  var plan={
+    "8,000":["Oil &amp; filter change","Top up all fluids","Tire pressure &amp; tread check","Multi-point inspection"],
+    "20,000":["Oil &amp; filter change","Tire rotation","Cabin air filter","Brake pads &amp; rotors inspection","Battery test","Wipers &amp; lights"],
+    "40,000":["Everything at 20,000 km","+Engine air filter","+Brake fluid check / flush","+Wheel alignment check","+Suspension &amp; steering inspection","+Diagnostic scan"],
+    "80,000":["Everything at 40,000 km","+Coolant flush","+Transmission fluid service","+Spark plugs (many engines)","+Drive belts &amp; hoses","+Shocks &amp; struts check"],
+    "100,000+":["Everything at 80,000 km","+Timing belt (if equipped)","+Water pump inspection","+Engine mounts","+Exhaust &amp; catalytic converter check","+Full brake system service"]
+  };
+  var list=document.getElementById('odo-list'),val=document.getElementById('odo-val'),tabs=document.querySelectorAll('#odo button');
+  function show(k){
+    val.textContent=k;
+    list.innerHTML=plan[k].map(function(t){var a=t.charAt(0)==='+';return '<li'+(a?' class="add"':'')+'><svg><use href="#'+(a?'i-wrench':'i-check')+'"/></svg>'+(a?t.slice(1):t)+'</li>'}).join('');
+    tabs.forEach(function(b){b.setAttribute('aria-selected',b.dataset.km===k?'true':'false')});
+  }
+  tabs.forEach(function(b){b.addEventListener('click',function(){show(b.dataset.km)})});
+  show("8,000");
+  var m=new Date().getMonth()+1;
+  document.querySelectorAll('#seasons .season').forEach(function(el){if(el.dataset.months.split(',').indexOf(String(m))>-1)el.classList.add('now')});
+})();
+</script>
+
+</body>
+</html>
