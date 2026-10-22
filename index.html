@@ -1006,7 +1006,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1.2re
 (function(){
   var f=document.getElementById('estimate'),err=document.getElementById('f-err'),done=document.getElementById('f-done'),out=document.getElementById('f-out');
   // Form delivery settings: put the shop's Web3Forms access key and WhatsApp number here.
-  var CONFIG={web3formsKey:'YOUR_WEB3FORMS_ACCESS_KEY',whatsapp:'14372674611'};
+  var CONFIG={web3formsKey:'d14ab53a-b0e8-42c3-89aa-fafe81ea3518',whatsapp:'14372674611'};
   var v=function(id){return document.getElementById(id).value.trim()};
   var summary=function(){return ['Estimate request — Damot Auto','Name: '+v('f-name'),'Phone: '+v('f-phone'),'Vehicle: '+(v('f-car')||'—'),'Service: '+v('f-svc'),'Insurance claim: '+(document.getElementById('f-ins').checked?'Yes':'No'),'Details: '+(v('f-msg')||'—')].join('\n')};
   var wa=document.getElementById('f-wa');
